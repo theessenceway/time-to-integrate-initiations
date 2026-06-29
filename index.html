@@ -156,7 +156,9 @@ nav{
 /* ── PAGE WRAPPER ── */
 .page{
   display:flex;flex-direction:column;align-items:center;
-  padding:0 20px 80px;gap:0
+  padding:0 20px 80px;gap:0;
+  overflow-x:hidden;
+  max-width:100vw
 }
 
 /* ── GLASS CARD ── */
@@ -544,8 +546,8 @@ footer{
 /* ── RESPONSIVE — small phone (≤480 px) ── */
 @media(max-width:480px){
   nav{height:54px;padding:0 14px}
-  .nav-title{font-size:10px;letter-spacing:.14em}
-  .nav-cta{padding:8px 12px;font-size:9px;letter-spacing:.08em}
+  .nav-title{display:none}
+  .nav-cta{padding:8px 14px;font-size:9px;letter-spacing:.08em;white-space:nowrap}
   .hero{
     margin-top:60px;
     padding:56px 16px 44px;
@@ -591,8 +593,8 @@ footer{
   .invest-future{font-size:11px;margin-top:16px}
   .closing-quote{margin:22px auto 0;padding-top:18px;font-size:16px;line-height:1.75}
   .closing-tagline{font-size:10px;margin-top:14px}
-  .quote-card{min-height:220px}
-  .card{width:calc(100% - 16px)}
+  .quote-card{min-height:220px;max-width:100%}
+  .card{width:calc(100% - 16px);max-width:100%}
   .card-reveal.from-left{transform:translateX(-12px)}
   .card-reveal.from-right{transform:translateX(12px)}
   .rev-left{transform:translateX(-18px)}
@@ -610,9 +612,9 @@ footer{
   .footer-info{font-size:9.5px;line-height:1.75}
   .footer-copy{font-size:9px;padding-top:16px}
   .page{padding:0 10px 36px}
-  .gap-lg{height:18px}
-  .gap-md{height:12px}
-  .gap-sm{height:8px}
+  .gap-lg{height:14px}
+  .gap-md{height:14px}
+  .gap-sm{height:14px}
   .card{border-radius:14px}
   .float-card{border-radius:14px}
 }
