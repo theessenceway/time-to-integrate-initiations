@@ -722,6 +722,9 @@ footer{
   align-items:flex-end;
   gap:2px;
   pointer-events:none;
+  cursor:grab;
+  user-select:none;
+  -webkit-user-select:none;
 }
 .snav-item{
   display:flex;
@@ -1278,18 +1281,56 @@ footer{
   },{threshold:0.06,rootMargin:'0px 0px -24px 0px'});
   document.querySelectorAll('.rev').forEach(function(el){revObs.observe(el);});
 })();
-  // Scroll nav — dot indicator + scroll spy
+  // Scroll nav — dot indicator + scroll spy + drag-to-scrub
   (function(){
     var items = document.querySelectorAll('#scroll-nav .snav-item');
     var targets = [];
+    var didDrag = false;
+
     items.forEach(function(item){
       var t = document.getElementById(item.dataset.target);
       if(t) targets.push({el:t, item:item});
       item.addEventListener('click', function(){
+        if(didDrag){didDrag=false;return;}
         var el = document.getElementById(this.dataset.target);
         if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
       });
     });
+
+    // Drag-to-scrub
+    var snav = document.getElementById('scroll-nav');
+    var dragging = false;
+    var startY = 0;
+
+    function scrubToY(clientY){
+      var rect = snav.getBoundingClientRect();
+      var ratio = Math.max(0, Math.min(1, (clientY - rect.top) / rect.height));
+      window.scrollTo(0, ratio * (document.documentElement.scrollHeight - window.innerHeight));
+    }
+
+    snav.addEventListener('mousedown', function(e){
+      dragging = true; didDrag = false; startY = e.clientY;
+      snav.style.cursor = 'grabbing';
+      e.preventDefault();
+    });
+    snav.addEventListener('touchstart', function(e){
+      dragging = true; didDrag = false; startY = e.touches[0].clientY;
+      e.preventDefault();
+    }, {passive:false});
+
+    document.addEventListener('mousemove', function(e){
+      if(!dragging) return;
+      if(Math.abs(e.clientY - startY) > 4) didDrag = true;
+      if(didDrag) scrubToY(e.clientY);
+    });
+    document.addEventListener('touchmove', function(e){
+      if(!dragging) return;
+      if(Math.abs(e.touches[0].clientY - startY) > 4) didDrag = true;
+      if(didDrag){ scrubToY(e.touches[0].clientY); e.preventDefault(); }
+    }, {passive:false});
+
+    document.addEventListener('mouseup', function(){ dragging = false; snav.style.cursor = ''; });
+    document.addEventListener('touchend', function(){ dragging = false; });
     var activeItem = null;
     var allItems = Array.prototype.slice.call(items);
     function setActive(item){
