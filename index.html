@@ -17,9 +17,9 @@ html{overflow-x:hidden}
   --crimson-dk:#5c2218;
   --gold:#c49828;
   --gold-lt:#f2d86a;
-  --forest:#153a42;
-  --forest-br:#1a4a52;
-  --forest-dk:#0e2e35;
+  --forest:#1a4d5a;
+  --forest-br:#1e6e82;
+  --forest-dk:#0f3d4a;
   --charcoal:#f8f0e2;
   --ink:rgba(248,240,226,1.0);
   --ink-soft:rgba(248,240,226,.70);
@@ -40,10 +40,21 @@ body{
   font-weight:300;
   overflow-x:hidden;
   min-height:100vh;
+  background-color:#c8b89a;
+}
+
+/* ── PAGE BACKGROUND IMAGE ── */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
   background:
-    linear-gradient(rgba(8,6,3,.48),rgba(8,6,3,.48)),
-    url("pictures for backdrop/backdrop for webpage.jpg") center/cover fixed;
-  background-color:#0e0b07;
+    linear-gradient(rgba(10,8,5,.22),rgba(10,8,5,.22)),
+    url("pictures for backdrop/Backdrop new.png") center/cover no-repeat;
+  z-index:-1;
+  pointer-events:none;
 }
 
 /* Grain overlay */
@@ -86,9 +97,9 @@ nav{
 .btn-fill{
   color:#fff;
   background:linear-gradient(150deg,var(--forest-br) 0%,var(--forest-dk) 100%);
-  box-shadow:0 4px 24px rgba(26,74,82,.58),inset 0 1px 0 rgba(255,255,255,.16)
+  box-shadow:0 4px 28px rgba(30,110,130,.65),inset 0 1px 0 rgba(255,255,255,.18)
 }
-.btn-fill:hover{box-shadow:0 10px 36px rgba(26,74,82,.75),inset 0 1px 0 rgba(255,255,255,.16)}
+.btn-fill:hover{box-shadow:0 10px 40px rgba(30,110,130,.82),inset 0 1px 0 rgba(255,255,255,.18)}
 .btn-outline{
   color:var(--gold-lt);border:1.5px solid rgba(242,216,106,.50);
   background:transparent;
@@ -156,7 +167,7 @@ nav{
 /* ── PAGE WRAPPER ── */
 .page{
   display:flex;flex-direction:column;align-items:center;
-  padding:0 20px 80px;gap:0;
+  padding:0 20px 80px;gap:40px;
   overflow-x:hidden;
   max-width:100vw
 }
@@ -170,8 +181,8 @@ nav{
   border-radius:24px;
   position:relative;overflow:hidden;
   box-shadow:
-    0 20px 56px rgba(0,0,0,.32),
-    0 4px 12px rgba(0,0,0,.18),
+    0 6px 22px rgba(0,0,0,.28),
+    0 2px 6px rgba(0,0,0,.14),
     inset 0 1px 0 rgba(255,255,255,.09)
 }
 .card::before{
@@ -186,10 +197,10 @@ nav{
 .card-md{max-width:660px}
 .card-sm{max-width:560px}
 
-/* Spacing between cards */
-.gap-sm{height:20px}
+/* Spacing between cards — all equal */
+.gap-sm{height:36px}
 .gap-md{height:36px}
-.gap-lg{height:56px}
+.gap-lg{height:36px}
 
 /* ── INNER PADDING ── */
 .inner{padding:64px 56px}
@@ -267,8 +278,8 @@ nav{
 }
 .card-photo-tom-bg{
   background:
-    radial-gradient(ellipse 100% 90% at 22% 50%, rgba(1,6,3,.60) 0%, rgba(1,6,3,.12) 56%, transparent 100%),
-    linear-gradient(to bottom,rgba(1,6,3,.62) 0%,rgba(1,6,3,.38) 50%,rgba(1,6,3,.64) 100%),
+    radial-gradient(ellipse 100% 90% at 22% 50%, rgba(1,6,3,.62) 0%, rgba(1,6,3,.14) 56%, transparent 100%),
+    linear-gradient(to bottom,rgba(1,6,3,.68) 0%,rgba(1,6,3,.36) 50%,rgba(1,6,3,.70) 100%),
     url("pictures for backdrop/Tom ceremoney 1.jpeg") center/cover no-repeat;
   border:1px solid rgba(212,172,64,.10)
 }
@@ -416,6 +427,63 @@ blockquote{
 .dtable td:first-child{font-family:var(--sans);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-lt);width:180px;padding-right:20px;font-weight:500}
 .dtable td:last-child{color:var(--ink)}
 
+.modality-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.modality-tag{
+  font-family:var(--sans);font-size:9.5px;font-weight:500;
+  letter-spacing:.20em;text-transform:uppercase;
+  color:rgba(242,216,106,.82);
+  border:1px solid rgba(242,216,106,.26);
+  border-radius:50px;
+  padding:8px 18px;
+  background:rgba(242,216,106,.05);
+}
+
+/* ── LINEAGE / CREDENTIAL STRIP ── */
+.lineage-wrap{margin-top:36px;padding-top:28px;border-top:1px solid rgba(212,172,64,.18)}
+.lineage-label{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:rgba(242,216,106,.72);margin-bottom:14px}
+.lineage-grid{display:flex;flex-wrap:wrap;gap:9px}
+.lineage-tag{
+  font-family:var(--sans);font-size:9.5px;font-weight:400;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(248,240,226,.88);
+  border:1px solid rgba(248,240,226,.30);
+  border-radius:50px;
+  padding:7px 18px;
+  background:rgba(248,240,226,.07);
+  text-decoration:none;
+  transition:border-color .2s,color .2s,background .2s;
+}
+a.lineage-tag:hover{
+  border-color:rgba(242,216,106,.50);
+  color:var(--gold-lt);
+  background:rgba(242,216,106,.08);
+}
+.lineage-note{
+  margin-top:16px;
+  font-family:var(--sans);font-size:11px;font-style:italic;
+  line-height:1.75;color:rgba(248,240,226,.52);letter-spacing:.01em;
+}
+
+/* ── SCARCITY NOTICE ── */
+.scarcity-notice{
+  font-family:var(--sans);font-size:10px;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(242,216,106,.75);
+  margin-bottom:18px;
+}
+
+/* ── FAQ ── */
+.faq-item{padding:24px 0;border-bottom:1px solid rgba(212,172,64,.12)}
+.faq-item:first-child{padding-top:0}
+.faq-item:last-child{border-bottom:none;padding-bottom:0}
+.faq-q{font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:.07em;color:var(--gold-lt);margin-bottom:10px;line-height:1.6}
+.faq-a{font-size:17px;line-height:1.88;color:rgba(248,240,226,.84);font-weight:300}
+
+/* ── WHO THIS IS FOR — bullet list ── */
+.for-you-list{margin:20px 0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:13px}
+.for-you-list li{padding-left:22px;position:relative;font-size:17px;line-height:1.80;color:rgba(248,240,226,.90)}
+.for-you-list li::before{content:'·';position:absolute;left:0;top:0;color:var(--gold-lt);font-size:22px;line-height:1.35}
+
 /* ── ABOUT BANNER ── */
 .about-banner{width:100%;height:440px;overflow:hidden;position:relative;border-radius:20px 20px 0 0}
 .about-banner img{width:100%;height:100%;object-fit:cover;object-position:center 18%;filter:contrast(1.04) brightness(.96)}
@@ -451,8 +519,8 @@ blockquote{
 /* ── CLOSING ── */
 .closing-tagline{margin-top:22px;font-family:var(--sans);font-size:12px;letter-spacing:.14em;color:var(--gold-lt);text-shadow:0 1px 8px rgba(0,0,0,.90),0 2px 20px rgba(0,0,0,.60)}
 .closing-quote{
-  margin:52px auto 0;padding-top:40px;max-width:500px;
-  border-top:1px solid rgba(212,172,64,.28);
+  margin:0 auto;padding:0 24px;max-width:500px;
+  text-align:center;
   font-style:italic;font-size:21px;line-height:1.90;
   color:rgba(248,240,226,.94);text-shadow:0 1px 10px rgba(0,0,0,.90),0 3px 24px rgba(0,0,0,.65)
 }
@@ -500,8 +568,6 @@ footer{
 
 /* ── RESPONSIVE — tablet ── */
 @media(max-width:860px){
-  /* iOS Safari: fixed backgrounds break on scroll — switch to scroll */
-  body{background-attachment:scroll}
   nav{padding:0 22px;height:62px}
   .nav-title{font-size:11px;letter-spacing:.18em}
   .nav-cta{padding:9px 20px;font-size:10px}
@@ -516,7 +582,6 @@ footer{
   .dtable td:first-child{width:110px;font-size:9px}
   footer{padding:32px 24px;flex-direction:column;align-items:flex-start}
   .footer-info{text-align:left}
-  .gap-lg{height:40px}
 }
 
 /* ── RESPONSIVE — phone ── */
@@ -531,16 +596,16 @@ footer{
   .rule{margin:0 0 26px}
   .sec-cta{margin-top:28px}
   .p-note{font-size:16px;margin-bottom:28px}
-  .closing-quote{margin:32px auto 0;padding-top:26px;font-size:18px}
+  .closing-quote{font-size:18px}
   .invest-price{font-size:clamp(60px,17vw,88px)}
-  .gap-lg{height:28px}
+  .gap-lg{height:18px}
   .reviews-grid{grid-template-columns:1fr;gap:14px}
   .review-card{padding:18px 16px}
   .review-name{font-size:13px}
   .review-text{font-size:14px}
   .gap-md{height:18px}
-  .gap-sm{height:10px}
-  .page{padding:0 14px 52px}
+  .gap-sm{height:18px}
+  .page{padding:0 14px 52px;gap:20px}
 }
 
 /* ── RESPONSIVE — small phone (≤480 px) ── */
@@ -591,7 +656,7 @@ footer{
   .invest-rate{font-size:9px;letter-spacing:.16em;margin-bottom:22px}
   .invest-body{font-size:15px;margin-bottom:28px}
   .invest-future{font-size:11px;margin-top:16px}
-  .closing-quote{margin:22px auto 0;padding-top:18px;font-size:16px;line-height:1.75}
+  .closing-quote{font-size:16px;line-height:1.75}
   .closing-tagline{font-size:10px;margin-top:14px}
   .quote-card{min-height:220px;max-width:100%}
   .card{width:calc(100% - 16px);max-width:100%}
@@ -611,12 +676,80 @@ footer{
   .footer-tagline{font-size:7.5px;letter-spacing:.18em}
   .footer-info{font-size:9.5px;line-height:1.75}
   .footer-copy{font-size:9px;padding-top:16px}
-  .page{padding:0 10px 36px}
+  .page{padding:0 10px 36px;gap:16px}
   .gap-lg{height:14px}
   .gap-md{height:14px}
   .gap-sm{height:14px}
   .card{border-radius:14px}
   .float-card{border-radius:14px}
+}
+
+/* SCROLL NAV */
+#scroll-nav{
+  position:fixed;
+  right:18px;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:900;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:2px;
+  pointer-events:none;
+}
+.snav-item{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  cursor:pointer;
+  padding:4px 0;
+  pointer-events:all;
+}
+.snav-label{
+  font-family:var(--sans);
+  font-size:9.5px;
+  font-weight:500;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:rgba(248,240,226,.80);
+  opacity:0;
+  transform:translateX(5px);
+  transition:opacity .20s,transform .20s;
+  white-space:nowrap;
+  text-shadow:0 1px 8px rgba(0,0,0,.90),0 0 20px rgba(0,0,0,.60);
+}
+.snav-item:hover .snav-label{opacity:1;transform:translateX(0)}
+#scroll-nav.is-scrolling .snav-item.snav-near .snav-label{opacity:.30;transform:translateX(0)}
+#scroll-nav.is-scrolling .snav-item.snav-active .snav-label{opacity:1;transform:translateX(0)}
+.snav-item.snav-active .snav-label{color:rgba(212,172,64,.95)}
+.snav-dot{
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:rgba(212,172,64,.28);
+  border:1px solid rgba(212,172,64,.45);
+  transition:background .22s,transform .22s,box-shadow .22s;
+  flex-shrink:0;
+}
+.snav-item:hover .snav-dot{
+  background:rgba(212,172,64,.55);
+  transform:scale(1.4);
+}
+.snav-item.snav-active .snav-dot{
+  background:rgba(212,172,64,.95);
+  box-shadow:0 0 7px rgba(212,172,64,.65);
+  transform:scale(1.6);
+}
+@media(max-width:1000px){
+  #scroll-nav{right:12px}
+  .snav-dot{width:6px;height:6px}
+  .snav-item{padding:6px 0}
+  .snav-item.snav-active .snav-dot{transform:scale(1.8)}
+}
+@media(max-width:600px){
+  #scroll-nav{right:8px;gap:1px}
+  .snav-dot{width:5px;height:5px}
+  .snav-item{padding:5px 0}
 }
 </style>
 </head>
@@ -637,12 +770,30 @@ footer{
   <a href="https://wa.me/32474373277?text=Hi%20Tom%2C%20I%20would%20like%20to%20book%20my%20Alignment%20Call%20for%20Time%20to%20Integrate" class="btn btn-fill nav-cta">Book Your Alignment Call</a>
 </nav>
 
+<div id="scroll-nav" aria-hidden="true">
+  <div class="snav-item" data-target="sec-hero"><span class="snav-label">Intro</span><div class="snav-dot"></div></div>
+  <div class="snav-item" data-target="sec-pattern"><span class="snav-label">The Pattern</span><div class="snav-dot"></div></div>
+  <div class="snav-item" data-target="sec-root"><span class="snav-label">The Root</span><div class="snav-dot"></div></div>
+  <div class="snav-item" data-target="sec-method"><span class="snav-label">The Method</span><div class="snav-dot"></div></div>
+  <div class="snav-item" data-target="sec-tom"><span class="snav-label">Tom Æon</span><div class="snav-dot"></div></div>
+  <div class="snav-item" data-target="sec-container"><span class="snav-label">The Container</span><div class="snav-dot"></div></div>
+  <div class="snav-item" data-target="sec-journey"><span class="snav-label">The Journey</span><div class="snav-dot"></div></div>
+  <div class="snav-item" data-target="sec-outcome"><span class="snav-label">The Outcome</span><div class="snav-dot"></div></div>
+  <div class="snav-item" data-target="sec-foryou"><span class="snav-label">For You?</span><div class="snav-dot"></div></div>
+  <div class="snav-item" data-target="sec-stories"><span class="snav-label">Stories</span><div class="snav-dot"></div></div>
+  <div class="snav-item" data-target="sec-faq"><span class="snav-label">Questions</span><div class="snav-dot"></div></div>
+  <div class="snav-item" data-target="sec-format"><span class="snav-label">The Format</span><div class="snav-dot"></div></div>
+  <div class="snav-item" data-target="sec-included"><span class="snav-label">Included</span><div class="snav-dot"></div></div>
+  <div class="snav-item" data-target="sec-invest"><span class="snav-label">Investment</span><div class="snav-dot"></div></div>
+  <div class="snav-item" data-target="sec-next"><span class="snav-label">Next Step</span><div class="snav-dot"></div></div>
+</div>
+
 <!-- ① HERO -->
-<section class="hero">
+<section id="sec-hero" class="hero">
   <p class="hero-eyebrow fade d1">The Essence Way · Initiations</p>
   <h1 class="fade d2">Time to <em>Integrate</em></h1>
   <p class="hero-subtitle fade d3">From Knowing to Living</p>
-  <p class="hero-desc fade d4">A private ceremonial somatic energy medicine experience where the insights and breakthroughs you've accumulated are reactivated, what stands between knowing and living is cleared, and what you've always known you're truly capable of becomes the life you live.</p>
+  <p class="hero-desc fade d4">A private ceremonial somatic energy medicine experience where the insights and breakthroughs you've accumulated are reactivated, what stands between knowing and living is cleared, and what you've always known you're capable of becomes the life you live.</p>
   <a href="https://wa.me/32474373277?text=Hi%20Tom%2C%20I%20would%20like%20to%20book%20my%20Alignment%20Call%20for%20Time%20to%20Integrate" class="btn btn-fill fade d4">Book your Alignment Call</a>
   <p class="hero-invest fade d5">Founding Investment: €333 &nbsp;·&nbsp; Future: €555+</p>
 </section>
@@ -650,8 +801,8 @@ footer{
 <div class="page" style="padding-top:36px">
 
   <!-- ② IT KEEPS COMING BACK -->
-  <div class="gap-sm"></div>
-  <div class="card card-lg card-photo-winding card-reveal from-left">
+
+  <div id="sec-pattern" class="card card-lg card-photo-winding card-reveal from-left">
     <div class="inner">
       <p class="sec-label rev rev-left d1">The pattern</p>
       <h2 class="rev rev-up d2">It keeps <em>Coming Back</em></h2>
@@ -659,33 +810,33 @@ footer{
       <div class="float-card rev rev-up d3">
         <blockquote>"Time to integrate."</blockquote>
         <p>We hear it everywhere we go at every transformational event and even the not so transformational ones. Like a good old song that keeps repeating in our minds, never really knowing what to do with it. We all know that somehow it deeply matters that all the insights and breakthroughs lose their meaning if we don't integrate and embody them. And yet we have never quite received an answer to the most obvious question: what does that actually mean? How do we even integrate?</p>
-        <p>So we do what we know. We reflect, some do embodiment practices, others journal, breathwork to reconnect to the clarity, a few dip their toes into therapy, and as a last resort another ceremony. We show up for all of it, again and again, courageously moving through and confronting different aspects of our being having beautiful realisations and breakthroughs, arriving at deeper knowing of who we are, what we're here for, and how to move forward in alignment with what matters most, so much potential revealing itself, ready to move through.</p>
+        <p>So we do what we know. We reflect. We journal. We turn to breathwork to find our way back to a clarity we can still taste. Some of us walk into a therapist's office, which takes its own kind of courage. Others go back for another ceremony, willing to face ourselves again, trusting that this time it lands differently. We show up for all of it, not to chase another high, but because some part of us refuses to settle for less than what we know we're capable of. And each time, something real does move. We confront the parts of ourselves that ask to be seen, and arrive somewhere true, a deeper knowing of who we are, what we're here for, how to move forward in alignment with what matters most, so much potential revealing itself, ready to move through.</p>
         <p>And yet when we look at our actual lives, we realise that the passion project that once felt so alive and clear now sits untouched, floating as a half-expressed potential, waiting for the moment that never quite arrives. The direction blurs the moment life picks back up. The breakthrough fades into the background of the same patterns, the same hesitations, the same familiar pull away from what we know we are here to do.</p>
         <p>After a dozen unfinished projects and moments of almost, we start to doubt whether we can live up to our potential. And even worse, we begin to question if any of it is even real or if we are just delusional and it only exists in those moments of expansion.</p>
-        <p>And still, beneath all of it, something keeps returning. That same pull. That same knowing. Too consistent to ignore. Too alive to dismiss.</p>
+        <p>And still beneath all of it something keeps returning. That same pull. That same knowing. Too consistent to ignore. Too alive to dismiss.</p>
         <p class="p-accent">Maybe the question was never whether it was real. Maybe the question was always why it hasn't landed yet.</p>
       </div>
     </div>
   </div>
 
   <!-- ③ THE MISSING PIECE -->
-  <div class="gap-md"></div>
-  <div class="card card-md card-photo-missing card-reveal from-right">
+
+  <div id="sec-root" class="card card-md card-photo-missing card-reveal from-right">
     <div class="inner">
       <p class="sec-label rev rev-right d1">The root</p>
       <h2 class="rev rev-up d2">The <em>Missing Piece</em></h2>
       <div class="rule rev rev-up d2"></div>
-      <p class="rev rev-up d2">That knowing of what you are truly capable of that is your essence coming through. The deepest and most true part of you that knows exactly what you are here to create and how to bring it to life. It was and is always there, trying to guide you.</p>
+      <p class="rev rev-up d2">That knowing of what you're truly capable of, the one that surfaces in the moments you feel most untethered, most yourself, most free of the roles and patterns you normally operate from, is your essence coming through. The deepest and most true part of you, the part that knows exactly what you're here to create and how to bring it to life.</p>
       <div class="float-card rev rev-up d3">
-        <p>What has kept it from fully coming through are the limiting patterns. Showing up as the fears that surface the moment you sit down to work on what matters most. The patterns that have you second guessing every intuitive decision. The deep rooted beliefs that push you out of alignment right when you are closest to breaking through.</p>
-        <p>Remove those and your essence moves through freely. What you've been sensing becomes what you're living. That is what integration is about. And that is what Time to Integrate is here to bring.</p>
-        <p>So your longings can belong in your everyday lived experience — with your passion projects being birthed into life with a deep sense of ease and certainty — because finally we have arrived at that sweet spot where our contractions are transformed into expressions of life just flowing through. Full surrender to the knowing within, guiding us throughout.</p>
+        <p>What keeps it from fully coming through are the limiting patterns. Showing up as the fears that surface the moment you sit down to work on what matters most. The patterns that have you second guessing every intuitive decision. The deep rooted beliefs that push you out of alignment right when you are closest to breaking through.</p>
+        <p>To integrate is to look at what's actually keeping you from acting on your essence, the limiting patterns and imprints in the way, and clear them, so essence stops being something you catch glimpses of and becomes something you move from, consistently. That is what Time to Integrate is here to bring.</p>
+        <p>So the vision you've been carrying can belong in your everyday lived experience, with your passion projects being birthed into life with a deep sense of ease and certainty, because finally we have arrived at that sweet spot where our contractions are transformed into expressions of life just flowing through. Full surrender to the knowing within, guiding us throughout.</p>
       </div>
     </div>
   </div>
 
   <!-- QUOTE PANEL — landscape photo -->
-  <div class="gap-md"></div>
+
   <div class="card card-sm card-photo-landscape card-reveal from-scale quote-card" style="display:flex;align-items:center;justify-content:center">
     <div class="inner-sm quote-panel" style="text-align:center">
       <p class="panel-quote rev rev-scale d2">"Like a seed that already carries the blueprint of the tree it will become it does not need to figure out how to grow. It simply needs the right conditions for what is already inside it to express itself fully."</p>
@@ -693,8 +844,8 @@ footer{
   </div>
 
   <!-- ④ WHY THIS WORKS SO DEEPLY -->
-  <div class="gap-md"></div>
-  <div class="card card-lg card-photo-why card-reveal from-left">
+
+  <div id="sec-method" class="card card-lg card-photo-why card-reveal from-left">
     <div class="inner">
       <p class="sec-label rev rev-left d1">The method</p>
       <h2 class="rev rev-up d2">Why This Works <em>So Deeply</em></h2>
@@ -708,9 +859,59 @@ footer{
     </div>
   </div>
 
-  <!-- ⑤ WHAT IS TIME TO INTEGRATE -->
-  <div class="gap-md"></div>
-  <div class="card card-md card-photo-tti card-reveal from-right">
+  <!-- ⑤ ABOUT TOM ÆON -->
+
+  <div id="sec-tom" class="card card-xl card-photo-tom-bg card-reveal from-scale">
+    <div class="inner">
+      <div class="rev rev-up d1" style="margin:-64px -56px 36px;height:500px;overflow:hidden">
+        <img src="Tom Aeon picture.png" alt="Tom Æon" style="width:100%;height:100%;object-fit:cover;object-position:65% 20%;display:block;
+          -webkit-mask-image:linear-gradient(to bottom, black 50%, transparent 100%);
+          mask-image:linear-gradient(to bottom, black 50%, transparent 100%);
+          filter:brightness(.97) saturate(1.15)">
+      </div>
+      <div class="rev rev-up d2" style="margin-bottom:4px">
+        <p class="sec-label" style="margin-bottom:8px">Your guide</p>
+        <h2 style="margin:0">Tom <em>Æon</em></h2>
+      </div>
+      <div class="rule rev rev-up d2"></div>
+      <div class="float-card rev rev-up d3">
+        <p>I know what it feels like to have this great vision, that sense of purpose alive within you, desiring to move through. To know that there's something greater calling you forward, and not have the guidance or the tools, or even a real understanding of how to access it. How to move from it.</p>
+        <p>For years... it feels almost like a lifetime ago now, I've been successful as a project manager. That was supposed to make sense for me, supposed to bring me the fulfillment I was yearning to have.</p>
+        <p>After a while I was feeling the weight of being responsible for million-euro projects. It got me wondering, why am I even taking this on. For whom. I only felt less and less myself, yet more and more successful on the outside. Others were directing my life, without me even noticing it was happening. I wasn't truly living my own life. My own purpose. My own path.</p>
+        <p>It feels like yesterday. A Sunday evening, we'd ordered pizza. I went upstairs to check in on someone dear to me, and I caught her in such a deep, painful moment. Knowing she'd already been carrying this pain for months, years even.</p>
+        <p>It just smacked me in the face, you know. It shook me to my core.</p>
+        <p>I realized, wow. How much suffering it creates, being disconnected from belonging to yourself. To your purpose, your unique gifts and expression. How dependent you become on any forms of substances and attachments, trying so desperately to find belonging outside of yourself.</p>
+        <p>That moment changed everything. I couldn't come back to the life I was living. I had to take it into my own hands. Start my own search. Find the path that called me.</p>
+        <p>Two weeks later I quit my job and flew to Guatemala. That was the start of five years, devoted to understanding how to live in purpose. From purpose. In devotion to the vision I could feel calling me forward.</p>
+        <p>That led me to invest tens of thousands of euros into advanced trainings from Kundalini Yoga, breathwork facilitation, tantra, energy medicine, Reiki, bodywork, to other transformational modalities that helped me understand the many layers of who we are.</p>
+        <p>Every single path added a layer of understanding, lived experience and value. Breakthroughs. Insights. Real revelations, deep understanding. Skills I still use, in my own life and in the spaces I hold for others.</p>
+        <p>But the big promise, the one every modality quietly makes, never actually delivered.</p>
+        <p>The liberation from those patterns I kept looping through, the ones that kept pulling me back. It never came. What I was left with instead was this highly refined awareness of exactly what was limiting me. More conscious, more grounded, sure. But still inside the same patterns. Still without the ability to actually break free of them.</p>
+        <p>It wasn't until a handful of initiatory experiences in Luxor, Egypt, that something clicked. I finally had clarity, a total understanding of what real transformation actually requires. And where it has to go, beyond anywhere the other work had taken me.</p>
+        <p>That's when The Essence Way was born.</p>
+        <p>A path that brings everything together. That meets the places other work leaves untouched, so you can meet the totality of who you are, clear what was never yours to begin with, and finally move from the deeper truth that's already living inside you.</p>
+        <p>Because purpose isn't a destination. It's an energy that moves through you, every time you act from essence. That knowing. That pull. That part of you that has never once stopped calling you forward. It's always been there. Just covered over, by distortions and imprints and old programming that were never actually yours.</p>
+        <p class="p-accent">My friend, I am genuinely excited to invite you into this unraveling. Into the rise of your power, your purpose, your truth.</p>
+        <p style="font-weight:500;color:var(--charcoal)">Are you ready?</p>
+      </div>
+      <div class="lineage-wrap rev rev-up d4">
+        <p class="lineage-label">Certifications &amp; Lineage</p>
+        <div class="lineage-grid">
+          <a href="https://thefourwinds.com" target="_blank" rel="noopener noreferrer" class="lineage-tag">The Four Winds Society</a>
+          <span class="lineage-tag">Embodied Awakening Academy</span>
+          <span class="lineage-tag">500h Himalayan Kundalini Yoga TTC</span>
+          <span class="lineage-tag">Umoya Institute · Breathwork</span>
+          <span class="lineage-tag">I AM Presence Initiation</span>
+        </div>
+        <p class="lineage-note">Trained and initiated in the Q'ero · Laika tradition of the Peruvian Andes through the Light Body School of The Four Winds Society, founded by Dr. Alberto Villoldo.</p>
+        <p class="lineage-note" style="margin-top:10px">Much of what moves through this work arrived through personal initiation, years of inner commitment, and the kind of learning that only life itself can give.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑥ WHAT IS TIME TO INTEGRATE -->
+
+  <div id="sec-container" class="card card-md card-photo-tti card-reveal from-right">
     <div class="inner">
       <p class="sec-label rev rev-right d1">The container</p>
       <h2 class="rev rev-up d2">What Is <em>Time to Integrate?</em></h2>
@@ -727,8 +928,8 @@ footer{
   </div>
 
   <!-- ⑥ THE JOURNEY — water texture -->
-  <div class="gap-md"></div>
-  <div class="card card-xl card-photo-water card-reveal from-scale">
+
+  <div id="sec-journey" class="card card-xl card-photo-water card-reveal from-scale">
     <div class="inner">
       <p class="sec-label rev rev-left d1">overview</p>
       <h2 class="rev rev-up d2">The <em>Journey</em></h2>
@@ -739,12 +940,12 @@ footer{
         <div class="jstep rev rev-up d2">
           <div class="jstep-bubble"><span class="jstep-num">I</span></div>
           <div class="jstep-title">Opening &amp; Arrival</div>
-          <div class="jstep-body">We open sacred space together. The medicine is received. The nervous system settles into the land and into the container. The field opens — guided by your intentions and desires, held throughout by the space.</div>
+          <div class="jstep-body">We open sacred space together. The medicine is received. The nervous system settles into the land and into the container. The field opens, guided by your intentions and desires, held throughout by the space.</div>
         </div>
         <div class="jstep rev rev-up d3">
           <div class="jstep-bubble"><span class="jstep-num">II</span></div>
           <div class="jstep-title">Reading the Field</div>
-          <div class="jstep-body">Through shamanic diagnostic tools and direct access to the field, I locate the recurring pattern and trace it to its origin — together we find the doorway into what is ready to move.</div>
+          <div class="jstep-body">Through shamanic diagnostic tools and direct access to the field, I locate the recurring pattern and trace it to its origin, and together we find the doorway into what is ready to move.</div>
         </div>
         <div class="jstep rev rev-up d4">
           <div class="jstep-bubble"><span class="jstep-num">III</span></div>
@@ -754,7 +955,7 @@ footer{
         <div class="jstep rev rev-up d5">
           <div class="jstep-bubble"><span class="jstep-num">IV</span></div>
           <div class="jstep-title">Reclamation</div>
-          <div class="jstep-body">As the clearing completes energy returns. Through specific practices you learn to access your essence directly — to feel it moving through you, to express it, and to recognise what it means to act from it. You leave this phase with a living felt connection to the deepest part of who you are.</div>
+          <div class="jstep-body">As the clearing completes energy returns. Through specific practices you learn to access your essence directly, feeling it moving through you, expressing it, and recognising what it means to act from it. You leave this phase with a living felt connection to the deepest part of who you are.</div>
         </div>
         <div class="jstep rev rev-up d6">
           <div class="jstep-bubble"><span class="jstep-num">V</span></div>
@@ -767,30 +968,36 @@ footer{
   </div>
 
   <!-- ⑦ WHAT BECOMES POSSIBLE -->
-  <div class="gap-md"></div>
-  <div class="card card-md card-photo-hummingbird card-reveal from-right">
+
+  <div id="sec-outcome" class="card card-md card-photo-hummingbird card-reveal from-right">
     <div class="inner">
       <p class="sec-label rev rev-right d1">The outcome</p>
       <h2 class="rev rev-up d2">What Becomes <em>Possible</em></h2>
       <div class="rule rev rev-up d2"></div>
       <div class="float-card rev rev-up d3">
-        <p>After this experience something has shifted in how you carry yourself. There is more space in you now — the kind that feels open. Rooted. Like ground that was always there, finally felt beneath your feet.</p>
+        <p>After this experience something has shifted in how you carry yourself. There is more space in you, the kind that feels open. Rooted. Like ground that was always there, finally felt beneath your feet.</p>
         <p>The passion projects that once felt like they belonged to a future version of you begin to feel like yours to build today. Something in the way you move toward them has changed. The steadiness that was always trying to come through you now does. More consistently. More naturally. Like a returning to what was always true.</p>
-        <p>The vision remains. And you have deepened into it. That changes everything about how you meet it — with more clarity, more trust, more of the natural pull toward what you know you are here to do.</p>
-        <p>Your creativity moves from that place now. Your choices come from a deeper knowing. And the life you have been sensing was possible — the one that always felt just out of reach — begins to feel, for the first time, like exactly where you belong.</p>
+        <p>The vision remains. And you have deepened into it. That changes everything about how you meet it, with more clarity, more trust, and more of the natural pull toward what you know you are here to do.</p>
+        <p>Your creativity moves from that place now. Your choices come from a deeper knowing. And the life you have been sensing was possible, the one that always felt just out of reach, begins to feel, for the first time, like exactly where you belong.</p>
       </div>
     </div>
   </div>
 
   <!-- ⑧ WHO THIS IS FOR — panther backdrop -->
-  <div class="gap-md"></div>
-  <div class="card card-sm card-photo-panther card-reveal from-left">
+
+  <div id="sec-foryou" class="card card-sm card-photo-panther card-reveal from-left">
     <div class="inner">
       <p class="sec-label rev rev-left d1">Do you feel the call?</p>
       <h2 class="rev rev-up d2">Is This <em>for You?</em></h2>
       <div class="rule rev rev-up d2"></div>
       <div class="float-card rev rev-up d3">
         <p>This is for you if you have done the inner work. If you have walked through ceremonies, practices, and awakenings. If you know the talk and are ready to walk it.</p>
+        <ul class="for-you-list">
+          <li>You've had real breakthroughs in ceremony, retreat, or practice, and the same patterns keep returning the moment daily life picks back up.</li>
+          <li>You know exactly what you want to create or step into, and something keeps pulling you away from it right when you get close.</li>
+          <li>You've invested deeply in your growth and feel like something is still in the way. Not more knowing, but something that hasn't moved yet.</li>
+          <li>You are done with almost. You are ready for the shift to actually land.</li>
+        </ul>
         <p>Ready to step fully into the embodiment of your essence and purpose. Ready to confront and clear the deep-rooted imprints that have kept you from owning your full potential and living what you know to be true.</p>
       </div>
       <div class="sec-cta rev rev-up d5">
@@ -799,40 +1006,9 @@ footer{
     </div>
   </div>
 
-  <!-- ⑨ ABOUT TOM ÆON -->
-  <div class="gap-md"></div>
-  <div class="card card-xl card-photo-tom-bg card-reveal from-scale">
-    <div class="inner">
-      <p class="sec-label rev rev-left d1">Your guide</p>
-      <h2 class="rev rev-up d2">Tom <em>Æon</em></h2>
-      <div class="rule rev rev-up d2"></div>
-      <div class="float-card rev rev-up d3">
-        <p>Hi, my name is Tom.</p>
-        <p>I know what it feels like to have this burning potential inside of you — to know there is something greater calling you forward, but not have the guidance, tools, or real understanding of how to access it and move from it.</p>
-        <p>For years, I followed the script of what was supposed to bring fulfillment. I built the career. I did the things that made sense. I followed the path that was supposed to work.</p>
-        <p>But the meaning never arrived. The fulfillment never really landed.</p>
-        <p>And then life confronted me with something I could not ignore. Someone very close to me was going through a deeply painful time, and I found myself face-to-face with the reality of how much suffering people can carry when they feel disconnected, lost, and unable to find their way.</p>
-        <p>Something in me broke open.</p>
-        <p>I remember thinking: what am I doing with my life? How can I go back after this?</p>
-        <p>That moment changed something. I could no longer keep pretending that success from the outside, following that script that was written for me was enough. I had to take matters into my own hands. I had to start my own search and find the path that truly called me.</p>
-        <p>So, I devoted the last four years to this journey: understanding how to live in purpose, from purpose, and in devotion to the potential I could feel inside of me.</p>
-        <p>That led me to invest tens of thousands of euros into advanced trainings from Kundalini Yoga, breathwork facilitation, tantra, energy medicine, Reiki, bodywork, to other transformational modalities that helped me understand the many layers of who we are.</p>
-        <p>Every path gave me something. Breakthroughs. Insights. Revelations. Deep understandings. Skills I now use in my life and in the spaces I hold.</p>
-        <p>And yet the big promise was never delivered.</p>
-        <p>The liberation from those reoccurring patterns that kept me looping and pulling me back, it never truly came through. What I was left with was a highly refined awareness of what was limiting me, more conscious more grounded yet still inside the same limiting-patterns. without the ability to fully break free from them.</p>
-        <p>It was only after several initiatory experiences in Luxor, Egypt, that I was blessed with the clarity and total understanding of what true transformation actually requires and where it needs to go, beyond what other modalities have never taken me.</p>
-        <p>That is when The Essence Way was born.</p>
-        <p>A path that brings everything together and meets the places other work leaves untouched — so you can meet the totality of who you are, clear what is not yours, and finally move from the deeper truth that already lives within you.</p>
-        <p>Because purpose is not a destination. It is an energy that moves through you every time you act from essence. That knowing. That pull. That part of you that has never stopped calling you forward. It has always been there. It has just been covered by distortions, imprints, and old programming that were never truly yours.</p>
-        <p class="p-accent">My friend, I am deeply excited to invite you into this unravelling and into the rise of your power, purpose, and truth.</p>
-        <p style="font-weight:500;color:var(--charcoal)">Are you ready?</p>
-      </div>
-    </div>
-  </div>
-
   <!-- ⑩ THOSE WHO CAME BEFORE YOU -->
-  <div class="gap-md"></div>
-  <div class="card card-lg card-photo-came-before card-reveal from-left">
+
+  <div id="sec-stories" class="card card-lg card-photo-came-before card-reveal from-left">
     <div class="inner">
       <p class="sec-label rev rev-left d1">Real Experiences</p>
       <h2 class="rev rev-up d2">From People <em>Who Stepped In</em></h2>
@@ -864,7 +1040,7 @@ footer{
             <img class="review-avatar" src="review/Steph.png" alt="Stephanie Lalonde">
             <div>
               <p class="review-name">Stephanie Lalonde</p>
-              <p class="review-role">Feminine Embodiement &amp; Relationship Coach</p>
+              <p class="review-role">Feminine Embodiment &amp; Relationship Coach</p>
             </div>
           </div>
           <a class="review-video-link" data-videoid="K_f6f1hLjek" href="https://youtube.com/shorts/K_f6f1hLjek" target="_blank" rel="noopener noreferrer">
@@ -906,7 +1082,7 @@ footer{
           <div class="review-open-quote">"</div>
           <div class="review-text">
             <p>Working with Tom was truly empowering and freeing. He has a way of opening your heart and meeting you exactly where you are, allowing something deep to shift. Through his work, I was able to reconnect with a sense of unconditional love, both for myself and others.</p>
-            <p>I feel lighter than I have in a very long time. Life feels different now — more open, more whole. My heart feels full of love and light. I'm deeply grateful for this container.</p>
+            <p>I feel lighter than I have in a very long time. Life feels different now, more open, more whole. My heart feels full of love and light. I'm deeply grateful for this container.</p>
           </div>
         </div>
 
@@ -914,9 +1090,45 @@ footer{
     </div>
   </div>
 
+  <!-- FAQ -->
+
+  <div id="sec-faq" class="card card-xl card-dark card-reveal from-left">
+    <div class="inner">
+      <p class="sec-label rev rev-left d1">Common Questions</p>
+      <h2 class="rev rev-up d2">Before You <em>Reach Out</em></h2>
+      <div class="rule rev rev-up d2"></div>
+      <div class="float-card rev rev-up d3">
+        <div class="faq-item">
+          <p class="faq-q">I have never worked with plant medicine before. Is this still right for me?</p>
+          <p class="faq-a">This experience is designed for people who have done meaningful inner work, whether or not that includes plant medicine. If this is your first time in a ceremonial space, we will explore together in the Alignment Call whether you and the medicine are ready to meet. Safety and readiness come first. Nothing moves that isn't meant to move.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">What does the Alignment Call actually involve?</p>
+          <p class="faq-a">It is a 30-minute conversation, just the two of us. We talk about where you are, what keeps returning, and what you are genuinely ready to move. There is no pitch and no pressure. The call exists to feel whether this is the right container for you at this moment. If it is, we take the next step together. If it isn't, I will tell you honestly.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Do I need to travel to Portugal?</p>
+          <p class="faq-a">Yes. The experience takes place on a specific piece of land in Santa Clara, Alentejo. The land is part of the work. Being away from your everyday environment, held in nature, is not incidental. It is what makes this possible.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Is this safe?</p>
+          <p class="faq-a">This work is held with deep care and clear structure. In the Alignment Call we explore your physical and mental health, your readiness, and your relationship to the medicines so that what we step into together is genuinely right for you. The ceremonial space, the medicines, and the process have been prepared to support your system at every stage.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">I am already in therapy or other healing work. Can I still come?</p>
+          <p class="faq-a">Yes. This work does not compete with other modalities. It goes to where they leave off. Many people who come have rich histories with therapy, breathwork, yoga, and ceremony. This experience meets what those have been preparing.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">I notice this is the first time you are offering this specific experience. Should I be concerned?</p>
+          <p class="faq-a">Energy medicine, somatic bodywork, and ceremonial space are methods I have been working with for years across individual sessions and group containers. Time to Integrate is the first time they have been woven into this specific form. You are not a first attempt. You are the first to step into what I have spent years building toward.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ⑪ THE EXPERIENCE -->
-  <div class="gap-md"></div>
-  <div class="card card-md card-photo-experience card-reveal from-right">
+
+  <div id="sec-format" class="card card-md card-photo-experience card-reveal from-right">
     <div class="inner">
       <p class="sec-label rev rev-right d1">The format</p>
       <h2 class="rev rev-up d2">Sharp and <em>Clear</em></h2>
@@ -927,40 +1139,35 @@ footer{
           <tr><td>Duration</td><td>Arrival the evening before, full day of work, overnight on the land, final integration the morning after</td></tr>
           <tr><td>Medicines</td><td>Santa Maria, Cacao, and Rapé</td></tr>
           <tr><td>Location</td><td>Santa Clara, Alentejo</td></tr>
-          <tr><td>Ongoing support</td><td>Included in the days following the experience to support what continues to integrate and move</td></tr>
+          <tr><td>Availability</td><td>Available through 25 July &nbsp;·&nbsp; 2 of 3 spots remaining</td></tr>
         </table>
       </div>
-    </div>
-  </div>
-
-  <!-- ⑪ THE INVESTMENT -->
-  <div class="gap-lg"></div>
-  <div class="card card-md card-photo-invest card-reveal from-scale" style="text-align:center;position:relative;overflow:hidden">
-    <div class="invest-stars" aria-hidden="true">
-      <svg width="100%" height="100%" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">
-        <circle cx="60" cy="50" r="1" fill="rgba(212,172,64,.45)"/><circle cx="160" cy="22" r=".8" fill="rgba(212,172,64,.36)"/><circle cx="260" cy="65" r="1.1" fill="rgba(212,172,64,.48)"/><circle cx="370" cy="30" r=".9" fill="rgba(212,172,64,.34)"/><circle cx="460" cy="72" r="1" fill="rgba(212,172,64,.42)"/><circle cx="570" cy="18" r=".7" fill="rgba(212,172,64,.36)"/><circle cx="670" cy="58" r="1" fill="rgba(212,172,64,.40)"/><circle cx="750" cy="35" r=".8" fill="rgba(212,172,64,.30)"/><circle cx="120" cy="120" r=".6" fill="rgba(212,172,64,.26)"/><circle cx="320" cy="140" r=".9" fill="rgba(212,172,64,.28)"/><circle cx="550" cy="110" r=".7" fill="rgba(212,172,64,.26)"/>
-      </svg>
-    </div>
-    <div class="inner-lg" style="position:relative;z-index:1">
-      <p class="sec-label center rev rev-scale d1">best price value</p>
-      <h2 class="rev rev-up d2">The <em>Investment</em></h2>
-      <div class="rule center rev rev-up d2"></div>
-      <div class="invest-price rev rev-scale d3">€333</div>
-      <p class="invest-rate rev rev-scale d3">Founding Rate — First 3 Experiences Only</p>
-      <p class="invest-body rev rev-up d4">The founding rate of €333 exists because this is the first time this experience is being offered in this form. You receive the full depth of the work — the ceremonial space, the energy medicine, the land, and the ongoing support — at the most accessible investment this experience will ever be offered at. After this founding round, the investment moves to €555 and beyond.</p>
-      <div class="rev rev-up d5">
-        <a href="https://wa.me/32474373277?text=Hi%20Tom%2C%20I%20would%20like%20to%20book%20my%20Alignment%20Call%20for%20Time%20to%20Integrate" class="btn btn-fill">Book your Alignment Call</a>
+      <div class="rev rev-up d4" style="margin-top:40px">
+        <p class="sec-label" style="margin-bottom:20px">Modalities</p>
+        <div class="modality-grid">
+          <span class="modality-tag">Energy Medicine</span>
+          <span class="modality-tag">Somatic Bodywork</span>
+          <span class="modality-tag">Breathwork</span>
+          <span class="modality-tag">Channeling</span>
+          <span class="modality-tag">Soul Retrieval</span>
+          <span class="modality-tag">Fascia Release</span>
+          <span class="modality-tag">Cord Cutting</span>
+          <span class="modality-tag">Fire Ceremony</span>
+          <span class="modality-tag">Illumination Process</span>
+          <span class="modality-tag">Extraction Process</span>
+<span class="modality-tag">Destiny Retrieval</span>
+        </div>
+        <p class="lineage-note" style="margin-top:18px">The practices most alive in this work. Others may move through as called. This is an intuitive container that meets you exactly where you are.</p>
       </div>
-      <p class="invest-future rev rev-up d6">Future investment: €555+</p>
     </div>
   </div>
 
-  <!-- ⑫ BONUSES -->
-  <div class="gap-md"></div>
-  <div class="card card-lg card-photo-included card-reveal from-right">
+  <!-- ⑫ WHAT COMES WITH YOU -->
+
+  <div id="sec-included" class="card card-lg card-photo-included card-reveal from-right">
     <div class="inner">
       <p class="sec-label rev rev-right d1">included</p>
-      <h2 class="rev rev-up d2"><em>Bonuses</em></h2>
+      <h2 class="rev rev-up d2">What Comes <em>With You</em></h2>
       <div class="rule rev rev-up d2"></div>
       <div class="bonus-grid">
         <div class="bonus rev rev-up d3">
@@ -975,30 +1182,56 @@ footer{
     </div>
   </div>
 
+  <!-- ⑬ THE INVESTMENT -->
+
+  <div id="sec-invest" class="card card-md card-photo-invest card-reveal from-scale" style="text-align:center;position:relative;overflow:hidden">
+    <div class="invest-stars" aria-hidden="true">
+      <svg width="100%" height="100%" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">
+        <circle cx="60" cy="50" r="1" fill="rgba(212,172,64,.45)"/><circle cx="160" cy="22" r=".8" fill="rgba(212,172,64,.36)"/><circle cx="260" cy="65" r="1.1" fill="rgba(212,172,64,.48)"/><circle cx="370" cy="30" r=".9" fill="rgba(212,172,64,.34)"/><circle cx="460" cy="72" r="1" fill="rgba(212,172,64,.42)"/><circle cx="570" cy="18" r=".7" fill="rgba(212,172,64,.36)"/><circle cx="670" cy="58" r="1" fill="rgba(212,172,64,.40)"/><circle cx="750" cy="35" r=".8" fill="rgba(212,172,64,.30)"/><circle cx="120" cy="120" r=".6" fill="rgba(212,172,64,.26)"/><circle cx="320" cy="140" r=".9" fill="rgba(212,172,64,.28)"/><circle cx="550" cy="110" r=".7" fill="rgba(212,172,64,.26)"/>
+      </svg>
+    </div>
+    <div class="inner-lg" style="position:relative;z-index:1">
+      <p class="sec-label center rev rev-scale d1">best price value</p>
+      <h2 class="rev rev-up d2">The <em>Investment</em></h2>
+      <div class="rule center rev rev-up d2"></div>
+      <div class="invest-price rev rev-scale d3">€333</div>
+      <p class="invest-rate rev rev-scale d3">Founding Rate &nbsp;·&nbsp; First 3 Experiences Only</p>
+      <p class="invest-body rev rev-up d4">The founding rate of €333 exists because this is the first time this experience is being offered in this form. You receive the full depth of the work, including the ceremonial space, the energy medicine, the land, and the ongoing support, at the most accessible investment this experience will ever be offered at. After this founding round, the investment moves to €555 and beyond.</p>
+      <p class="scarcity-notice rev rev-up d5">2 spots remaining &nbsp;·&nbsp; available through 25 July</p>
+      <div class="rev rev-up d5">
+        <a href="https://wa.me/32474373277?text=Hi%20Tom%2C%20I%20would%20like%20to%20book%20my%20Alignment%20Call%20for%20Time%20to%20Integrate" class="btn btn-fill">Book your Alignment Call</a>
+      </div>
+      <p class="invest-future rev rev-up d6">Future investment: €555+</p>
+    </div>
+  </div>
+
   <!-- ⑬ THE NEXT STEP — closing -->
-  <div class="gap-md"></div>
-  <div class="card card-lg card-photo-landscape card-reveal from-scale" style="text-align:center">
+
+  <div id="sec-next" class="card card-lg card-photo-landscape card-reveal from-scale" style="text-align:center">
     <div class="inner-lg">
       <p class="sec-label center rev rev-scale d1">Let's go</p>
       <h2 class="rev rev-up d2" style="font-size:clamp(28px,4.2vw,50px)">The Next <em>Step</em></h2>
       <div class="rule center rev rev-up d2"></div>
-      <p class="rev rev-up d3" style="max-width:480px;margin:0 auto 36px;font-size:19px;line-height:1.90;text-shadow:0 1px 8px rgba(0,0,0,.90),0 2px 20px rgba(0,0,0,.60)">This experience begins with an Alignment Call, a genuine conversation to feel whether this is the right moment, the right container, and the right fit for where you are right now.</p>
+      <p class="rev rev-up d3" style="max-width:480px;margin:0 auto 36px;font-size:19px;line-height:1.90;text-shadow:0 1px 8px rgba(0,0,0,.90),0 2px 20px rgba(0,0,0,.60)">This experience begins with an Alignment Call, a genuine conversation to feel whether this is the right moment, the right container, and the right fit for where you are right now. It takes around 30 minutes. We talk about where you are, what keeps returning, and what you are genuinely ready to move. There is no pitch and no pressure. If this is the right fit, we take the next step together. If it isn't, I will tell you honestly.</p>
       <div class="rev rev-up d4">
         <a href="https://wa.me/32474373277?text=Hi%20Tom%2C%20I%20would%20like%20to%20book%20my%20Alignment%20Call%20for%20Time%20to%20Integrate" class="btn btn-fill">Book your Alignment Call</a>
       </div>
-<p class="closing-quote rev rev-up d6">
-        "You are here for a specific purpose.<br>
-        And in any moment you choose to move from your Essence<br>
-        that purpose is allowed to come through."
-      </p>
     </div>
   </div>
 
-  <div class="gap-lg"></div>
+
 </div>
 
 <!-- FOOTER -->
-<footer style="justify-content:center">
+<footer style="justify-content:center;flex-direction:column;align-items:center;gap:0;padding:48px 24px 36px">
+  <p class="closing-quote" style="margin:0;padding:0;border:none;text-align:center">
+    "You are here for a specific purpose.<br>
+    And in any moment you choose to move from your Essence<br>
+    that purpose is allowed to come through."
+  </p>
+  <div style="margin:32px auto 28px;width:120px;height:64px;overflow:hidden;border-radius:50%;border:1px solid rgba(212,172,64,.28);box-shadow:0 2px 12px rgba(0,0,0,.50)">
+    <img src="pictures for backdrop/eagle floating above.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;opacity:.82;display:block">
+  </div>
   <p style="text-align:center;font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:rgba(248,240,226,.60)">The Essence Way &nbsp;·&nbsp; Initiations &nbsp;·&nbsp; Tom Æon</p>
 </footer>
 
@@ -1018,6 +1251,48 @@ footer{
   },{threshold:0.06,rootMargin:'0px 0px -24px 0px'});
   document.querySelectorAll('.rev').forEach(function(el){revObs.observe(el);});
 })();
+  // Scroll nav — dot indicator + scroll spy
+  (function(){
+    var items = document.querySelectorAll('#scroll-nav .snav-item');
+    var targets = [];
+    items.forEach(function(item){
+      var t = document.getElementById(item.dataset.target);
+      if(t) targets.push({el:t, item:item});
+      item.addEventListener('click', function(){
+        var el = document.getElementById(this.dataset.target);
+        if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+    var activeItem = null;
+    var allItems = Array.prototype.slice.call(items);
+    function setActive(item){
+      if(activeItem === item) return;
+      allItems.forEach(function(i){i.classList.remove('snav-active','snav-near');});
+      item.classList.add('snav-active');
+      activeItem = item;
+      var idx = allItems.indexOf(item);
+      if(allItems[idx-1]) allItems[idx-1].classList.add('snav-near');
+      if(allItems[idx+1]) allItems[idx+1].classList.add('snav-near');
+    }
+    function update(){
+      var mid = window.scrollY + window.innerHeight * 0.38;
+      var current = null;
+      targets.forEach(function(t){
+        if(window.scrollY + t.el.getBoundingClientRect().top <= mid) current = t;
+      });
+      if(current) setActive(current.item);
+    }
+    var snav = document.getElementById('scroll-nav');
+    var scrollTimer;
+    window.addEventListener('scroll', function(){
+      snav.classList.add('is-scrolling');
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(function(){ snav.classList.remove('is-scrolling'); }, 700);
+      update();
+    }, {passive:true});
+    update();
+  })();
+
   // Click-to-play YouTube embeds
   document.querySelectorAll('.review-video-link[data-videoid]').forEach(function(link){
     link.addEventListener('click',function(e){
