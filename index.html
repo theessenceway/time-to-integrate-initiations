@@ -524,6 +524,20 @@ a.lineage-tag:hover{
   font-style:italic;font-size:21px;line-height:1.90;
   color:rgba(248,240,226,.94);text-shadow:0 1px 10px rgba(0,0,0,.90),0 3px 24px rgba(0,0,0,.65)
 }
+.closing-band{
+  width:100%;
+  padding:110px 24px 120px;
+  display:flex;align-items:center;justify-content:center;
+  background:
+    linear-gradient(to bottom,rgba(1,6,3,.72) 0%,rgba(1,6,3,.28) 30%,rgba(1,6,3,.28) 55%,rgba(1,6,3,.88) 78%,rgba(1,6,3,1) 100%),
+    url("pictures for backdrop/eagle floating above.png") center 45%/cover no-repeat;
+}
+.site-footer{
+  padding:24px 24px 32px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(1,6,3,1);
+  border-top:1px solid rgba(212,172,64,.08);
+}
 
 /* ── CTA BLOCK ── */
 .sec-cta{margin-top:44px}
@@ -929,7 +943,7 @@ footer{
       <h2 class="rev rev-up d2">What Is <em>Time to Integrate?</em></h2>
       <div class="rule rev rev-up d2"></div>
       <div class="float-card rev rev-up d3">
-        <p>Time to Integrate is the missing piece between knowing and living, a day-and-a-half immersed in nature, away from the noise, the roles, and the demands of everyday life, dedicated entirely to you and what is ready to finally move through you and into your life.</p>
+        <p>Time to Integrate is a day-and-a-half immersed in nature, away from the noise, the roles, and the demands of everyday life, dedicated entirely to you and what is ready to finally move through you and into your life.</p>
         <p>You arrive the evening before and are welcomed onto a beautiful piece of land surrounded by nature. The ceremonial space is held beneath an ancient tree. A comfortable caravan is yours to rest and sleep in. Nourishing meals aligned to the experience are prepared for you. Everything is taken care of so from the moment you arrive, your only focus is being.</p>
         <p>The following morning, we open the space and move through the full arc of the experience together, supported by Santa Maria, Cacao, and Rapé, held in sacred space, with the land as your foundation throughout. You stay the night. And the morning after is held for final integration grounding what has shifted, clarifying what is calling you forward, before you step back into daily life.</p>
       </div>
@@ -1145,13 +1159,13 @@ footer{
       <p class="sec-label rev rev-right d1">The format</p>
       <h2 class="rev rev-up d2">Sharp and <em>Clear</em></h2>
       <div class="rule rev rev-up d2"></div>
+      <p class="scarcity-notice rev rev-up d2" style="margin-bottom:20px">Closes 25 July &nbsp;·&nbsp; 2 spots remaining</p>
       <div class="float-card rev rev-up d3">
         <table class="dtable">
           <tr><td>Format</td><td>Private, in-person, day and a half ceremonial container</td></tr>
           <tr><td>Duration</td><td>Arrival the evening before, full day of work, overnight on the land, final integration the morning after</td></tr>
           <tr><td>Medicines</td><td>Santa Maria, Cacao, and Rapé</td></tr>
           <tr><td>Location</td><td>Santa Clara, Alentejo</td></tr>
-          <tr><td>Availability</td><td>Available through 25 July &nbsp;·&nbsp; 2 of 3 spots remaining</td></tr>
         </table>
       </div>
       <div class="rev rev-up d4" style="margin-top:40px">
@@ -1234,17 +1248,18 @@ footer{
 
 </div>
 
-<!-- FOOTER -->
-<footer style="justify-content:center;flex-direction:column;align-items:center;gap:0;padding:48px 24px 36px">
-  <p class="closing-quote" style="margin:0;padding:0;border:none;text-align:center">
+<!-- CLOSING BAND -->
+<div class="closing-band">
+  <p class="closing-quote">
     "You are here for a specific purpose.<br>
     And in any moment you choose to move from your Essence<br>
     that purpose is allowed to come through."
   </p>
-  <div style="margin:32px auto 28px;width:120px;height:64px;overflow:hidden;border-radius:50%;border:1px solid rgba(212,172,64,.28);box-shadow:0 2px 12px rgba(0,0,0,.50)">
-    <img src="pictures for backdrop/eagle floating above.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;opacity:.82;display:block">
-  </div>
-  <p style="text-align:center;font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:rgba(248,240,226,.60)">The Essence Way &nbsp;·&nbsp; Initiations &nbsp;·&nbsp; Tom Æon</p>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p style="font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:rgba(248,240,226,.45)">The Essence Way &nbsp;·&nbsp; Initiations &nbsp;·&nbsp; Tom Æon</p>
 </footer>
 
 <script>
