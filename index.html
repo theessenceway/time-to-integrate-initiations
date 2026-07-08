@@ -684,6 +684,18 @@ footer{
   .float-card{border-radius:14px}
 }
 
+/* TOM PORTRAIT BANNER */
+.tom-portrait{margin:-64px -56px 36px;height:500px}
+@media(max-width:860px){.tom-portrait{margin:-52px -36px 28px;height:440px}}
+@media(max-width:600px){
+  .tom-portrait{margin:-40px -22px 28px;height:360px}
+  .tom-portrait img{object-position:65% 12% !important}
+}
+@media(max-width:480px){
+  .tom-portrait{margin:-30px -16px 24px;height:300px}
+  .tom-portrait img{object-position:65% 10% !important}
+}
+
 /* SCROLL NAV */
 #scroll-nav{
   position:fixed;
@@ -863,7 +875,7 @@ footer{
 
   <div id="sec-tom" class="card card-xl card-photo-tom-bg card-reveal from-scale">
     <div class="inner">
-      <div class="rev rev-up d1" style="margin:-64px -56px 36px;height:500px;overflow:hidden">
+      <div class="rev rev-up d1 tom-portrait" style="overflow:hidden">
         <img src="Tom Aeon picture.png" alt="Tom Æon" style="width:100%;height:100%;object-fit:cover;object-position:65% 20%;display:block;
           -webkit-mask-image:linear-gradient(to bottom, black 50%, transparent 100%);
           mask-image:linear-gradient(to bottom, black 50%, transparent 100%);
