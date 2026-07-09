@@ -729,10 +729,10 @@ footer{
 .snav-item{
   display:flex;
   align-items:center;
-  gap:9px;
   cursor:pointer;
   padding:4px 0;
   pointer-events:all;
+  position:relative;
 }
 .snav-label{
   font-family:var(--sans);
@@ -746,6 +746,9 @@ footer{
   transition:opacity .20s,transform .20s;
   white-space:nowrap;
   text-shadow:0 1px 8px rgba(0,0,0,.90),0 0 20px rgba(0,0,0,.60);
+  position:absolute;
+  right:calc(100% + 9px);
+  pointer-events:none;
 }
 .snav-item:hover .snav-label{opacity:1;transform:translateX(0)}
 #scroll-nav.is-scrolling .snav-item.snav-near .snav-label{opacity:.30;transform:translateX(0)}
@@ -780,6 +783,16 @@ footer{
   .snav-dot{width:5px;height:5px}
   .snav-item{padding:5px 0}
 }
+/* Full-height invisible strip on right edge — touch target for scrubbing */
+#snav-track{
+  position:fixed;right:0;top:0;width:44px;height:100%;
+  z-index:898;-webkit-user-select:none;user-select:none;touch-action:none;
+  display:none;
+}
+@media(pointer:coarse){
+  #snav-track{display:block;}
+  .snav-item{pointer-events:none;}
+}
 </style>
 </head>
 <body>
@@ -799,6 +812,7 @@ footer{
   <a href="https://wa.me/32474373277?text=Hi%20Tom%2C%20I%20would%20like%20to%20book%20my%20Alignment%20Call%20for%20Time%20to%20Integrate" class="btn btn-fill nav-cta">Book Your Alignment Call</a>
 </nav>
 
+<div id="snav-track"></div>
 <div id="scroll-nav" aria-hidden="true">
   <div class="snav-item" data-target="sec-hero"><span class="snav-label">Intro</span><div class="snav-dot"></div></div>
   <div class="snav-item" data-target="sec-pattern"><span class="snav-label">The Pattern</span><div class="snav-dot"></div></div>
@@ -1284,55 +1298,93 @@ footer{
   // Scroll nav — dot indicator + scroll spy + drag-to-scrub
   (function(){
     var items = document.querySelectorAll('#scroll-nav .snav-item');
+    var allItems = Array.prototype.slice.call(items);
     var targets = [];
     var didDrag = false;
 
     items.forEach(function(item){
       var t = document.getElementById(item.dataset.target);
       if(t) targets.push({el:t, item:item});
-      item.addEventListener('click', function(){
-        if(didDrag){didDrag=false;return;}
-        var el = document.getElementById(this.dataset.target);
-        if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
-      });
     });
 
-    // Drag-to-scrub
     var snav = document.getElementById('scroll-nav');
+    var track = document.getElementById('snav-track');
     var dragging = false;
     var startY = 0;
 
+    // clientY 0–innerHeight maps to scroll 0–max
     function scrubToY(clientY){
-      var rect = snav.getBoundingClientRect();
-      var ratio = Math.max(0, Math.min(1, (clientY - rect.top) / rect.height));
+      var ratio = Math.max(0, Math.min(1, clientY / window.innerHeight));
       window.scrollTo(0, ratio * (document.documentElement.scrollHeight - window.innerHeight));
     }
 
+    // ── Desktop (mouse): mousedown on nav column ──
     snav.addEventListener('mousedown', function(e){
       dragging = true; didDrag = false; startY = e.clientY;
       snav.style.cursor = 'grabbing';
       e.preventDefault();
     });
-    snav.addEventListener('touchstart', function(e){
-      dragging = true; didDrag = false; startY = e.touches[0].clientY;
-      e.preventDefault();
-    }, {passive:false});
-
     document.addEventListener('mousemove', function(e){
       if(!dragging) return;
       if(Math.abs(e.clientY - startY) > 4) didDrag = true;
       if(didDrag) scrubToY(e.clientY);
     });
+    document.addEventListener('mouseup', function(){
+      if(!dragging) return;
+      dragging = false; snav.style.cursor = '';
+      if(!didDrag){
+        // Desktop tap: find which dot was clicked via startY
+        var nearest = null, minDist = Infinity;
+        allItems.forEach(function(item){
+          var dot = item.querySelector('.snav-dot');
+          if(!dot) return;
+          var r = dot.getBoundingClientRect();
+          var dist = Math.abs((r.top + r.bottom) / 2 - startY);
+          if(dist < minDist){ minDist = dist; nearest = item; }
+        });
+        if(nearest && minDist < 30){
+          var el = document.getElementById(nearest.dataset.target);
+          if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      }
+    });
+
+    // ── Mobile (touch): full-height right-edge track ──
+    if(track){
+      track.addEventListener('touchstart', function(e){
+        dragging = true; didDrag = false;
+        startY = e.touches[0].clientY;
+        e.preventDefault();
+      }, {passive:false});
+    }
     document.addEventListener('touchmove', function(e){
       if(!dragging) return;
-      if(Math.abs(e.touches[0].clientY - startY) > 4) didDrag = true;
-      if(didDrag){ scrubToY(e.touches[0].clientY); e.preventDefault(); }
+      didDrag = true;                          // immediate — no dead zone
+      scrubToY(e.touches[0].clientY);
+      e.preventDefault();
     }, {passive:false});
+    document.addEventListener('touchend', function(e){
+      if(!dragging) return;
+      dragging = false;
+      if(!didDrag){
+        // Tap: navigate to nearest dot's section
+        var cy = e.changedTouches[0].clientY;
+        var nearest = null, minDist = Infinity;
+        allItems.forEach(function(item){
+          var dot = item.querySelector('.snav-dot');
+          if(!dot) return;
+          var r = dot.getBoundingClientRect();
+          var dist = Math.abs((r.top + r.bottom) / 2 - cy);
+          if(dist < minDist){ minDist = dist; nearest = item; }
+        });
+        if(nearest && minDist < 40){
+          var el = document.getElementById(nearest.dataset.target);
+          if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      }
+    });
 
-    document.addEventListener('mouseup', function(){ dragging = false; snav.style.cursor = ''; });
-    document.addEventListener('touchend', function(){ dragging = false; });
     var activeItem = null;
-    var allItems = Array.prototype.slice.call(items);
     function setActive(item){
       if(activeItem === item) return;
       allItems.forEach(function(i){i.classList.remove('snav-active','snav-near');});
@@ -1350,7 +1402,6 @@ footer{
       });
       if(current) setActive(current.item);
     }
-    var snav = document.getElementById('scroll-nav');
     var scrollTimer;
     window.addEventListener('scroll', function(){
       snav.classList.add('is-scrolling');
