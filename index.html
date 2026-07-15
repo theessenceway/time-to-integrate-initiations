@@ -6,7 +6,8 @@
 <title>Time to Integrate — Tom Æon · The Essence Way</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500&family=Lora:ital,wght@1,500&display=swap" rel="stylesheet"/>
+<link rel="preload" as="image" href="pictures for backdrop/Backdrop new.webp" type="image/webp"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{overflow-x:hidden}
@@ -22,11 +23,12 @@ html{overflow-x:hidden}
   --forest-dk:#0f3d4a;
   --charcoal:#f8f0e2;
   --ink:rgba(248,240,226,1.0);
-  --ink-soft:rgba(248,240,226,.70);
+  --ink-soft:rgba(248,240,226,.95);
   --glass:rgba(6,18,10,.88);
   --glass-border:rgba(255,255,255,.14);
   --serif:'Cormorant Garamond',Georgia,serif;
   --sans:'Inter',system-ui,sans-serif;
+  --lora:'Lora',Georgia,serif;
 }
 
 html{scroll-behavior:smooth}
@@ -37,7 +39,7 @@ body{
   color:var(--ink);
   line-height:1.9;
   font-size:18px;
-  font-weight:300;
+  font-weight:400;
   overflow-x:hidden;
   min-height:100vh;
   background-color:#c8b89a;
@@ -52,7 +54,7 @@ body::before{
   height:100%;
   background:
     linear-gradient(rgba(10,8,5,.22),rgba(10,8,5,.22)),
-    url("pictures for backdrop/Backdrop new.png") center/cover no-repeat;
+    url("pictures for backdrop/Backdrop new.webp") center/cover no-repeat;
   z-index:-1;
   pointer-events:none;
 }
@@ -128,12 +130,12 @@ nav{
       rgba(1,6,3,.12) 52%,
       rgba(1,6,3,.42) 74%,
       rgba(1,6,3,.80) 100%),
-    url("pictures for backdrop/eagle floating above.png") center 30%/cover no-repeat
+    url("pictures for backdrop/eagle floating above.webp") center 30%/cover no-repeat
 }
 .hero-eyebrow{
   font-family:var(--sans);font-size:10px;font-weight:500;
   letter-spacing:.34em;text-transform:uppercase;
-  color:var(--gold-lt);margin-bottom:28px;
+  color:var(--gold-lt);margin-bottom:12px;
   text-shadow:0 1px 10px rgba(0,0,0,.70)
 }
 .hero h1{
@@ -144,24 +146,26 @@ nav{
 }
 .hero h1 em{color:var(--gold-lt);font-style:italic;position:relative}
 .hero h1 em::after{
-  content:'';position:absolute;bottom:-6px;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,transparent,rgba(242,216,106,.65),transparent)
+  content:'';position:absolute;bottom:-8px;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(242,216,106,.70),transparent)
 }
 .hero-subtitle{
-  font-size:clamp(20px,2.6vw,28px);font-weight:400;font-style:italic;
-  color:var(--gold-lt);margin-bottom:30px;
-  text-shadow:0 2px 12px rgba(0,0,0,.90),0 4px 32px rgba(0,0,0,.75)
+  font-family:var(--sans);font-size:clamp(1.4rem,2.3vw,2.1rem);
+  font-weight:500;font-style:italic;letter-spacing:.01em;line-height:1.1;
+  color:var(--gold-lt);margin-top:16px;margin-bottom:14px;text-align:center;
+  text-shadow:0 2px 28px rgba(0,0,0,.95)
 }
+.hero-subtitle em{color:#f8f0e2;font-style:italic}
 .hero-desc{
-  max-width:540px;font-size:18px;
-  color:rgba(248,240,226,.96);line-height:1.90;margin-bottom:36px;
-  text-shadow:0 1px 8px rgba(0,0,0,.90),0 3px 20px rgba(0,0,0,.70)
+  max-width:540px;font-size:17px;
+  color:#ffffff;line-height:1.90;margin-bottom:36px;text-align:center;opacity:.95;
+  text-shadow:0 2px 12px rgba(0,0,0,.70),0 4px 24px rgba(0,0,0,.55)
 }
 .hero-invest{
   font-family:var(--sans);font-size:11px;font-weight:400;
   letter-spacing:.12em;color:var(--gold-lt);
   margin-top:18px;
-  text-shadow:0 1px 8px rgba(0,0,0,.90),0 2px 20px rgba(0,0,0,.65)
+  text-shadow:0 1px 8px rgba(0,0,0,.55),0 2px 20px rgba(0,0,0,.38)
 }
 
 /* ── PAGE WRAPPER ── */
@@ -213,7 +217,7 @@ nav{
   background:
     radial-gradient(ellipse 88% 80% at 50% 52%, rgba(1,6,3,.58) 0%, rgba(1,6,3,.12) 58%, transparent 100%),
     linear-gradient(to bottom,rgba(1,6,3,.68) 0%,rgba(1,6,3,.42) 50%,rgba(1,6,3,.70) 100%),
-    url("pictures for backdrop/landscape.jpg") center 35%/cover no-repeat;
+    url("pictures for backdrop/landscape.webp") center 35%/cover no-repeat;
   border:1px solid rgba(212,172,64,.16)
 }
 .card-photo-hummingbird{
@@ -252,7 +256,7 @@ nav{
   background:
     radial-gradient(ellipse 100% 90% at 22% 50%, rgba(1,6,3,.60) 0%, rgba(1,6,3,.12) 56%, transparent 100%),
     linear-gradient(to bottom,rgba(1,6,3,.64) 0%,rgba(1,6,3,.40) 50%,rgba(1,6,3,.66) 100%),
-    url("pictures for backdrop/the missing piece.jpg") center/cover no-repeat;
+    url("pictures for backdrop/the missing piece.webp") center/cover no-repeat;
   border:1px solid rgba(212,172,64,.10)
 }
 .card-photo-why{
@@ -266,14 +270,14 @@ nav{
   background:
     radial-gradient(ellipse 100% 90% at 22% 50%, rgba(1,6,3,.60) 0%, rgba(1,6,3,.12) 56%, transparent 100%),
     linear-gradient(to bottom,rgba(1,6,3,.64) 0%,rgba(1,6,3,.38) 50%,rgba(1,6,3,.66) 100%),
-    url("pictures for backdrop/What is time to integrate.jpg") center/cover no-repeat;
+    url("pictures for backdrop/What is time to integrate.webp") center/cover no-repeat;
   border:1px solid rgba(212,172,64,.10)
 }
 .card-photo-possible{
   background:
     radial-gradient(ellipse 100% 90% at 22% 50%, rgba(1,6,3,.58) 0%, rgba(1,6,3,.12) 56%, transparent 100%),
     linear-gradient(to bottom,rgba(1,6,3,.62) 0%,rgba(1,6,3,.38) 50%,rgba(1,6,3,.64) 100%),
-    url("pictures for backdrop/What becomes possible.jpg") center/cover no-repeat;
+    url("pictures for backdrop/What becomes possible.webp") center/cover no-repeat;
   border:1px solid rgba(212,172,64,.14)
 }
 .card-photo-tom-bg{
@@ -287,18 +291,19 @@ nav{
   background:
     radial-gradient(ellipse 140% 70% at 50% 38%, rgba(1,6,3,.30) 0%, rgba(1,6,3,.10) 50%, transparent 100%),
     linear-gradient(to bottom,rgba(1,6,3,.72) 0%,rgba(1,6,3,.28) 35%,rgba(1,6,3,.28) 65%,rgba(1,6,3,.74) 100%),
-    url("pictures for backdrop/Those who cam before.jpeg") center 30%/cover no-repeat;
+    url("pictures for backdrop/Those who cam before.webp") center 30%/cover no-repeat;
   border:1px solid rgba(212,172,64,.10)
 }
 /* ── REVIEWS GRID ── */
 .reviews-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:4px}
+.review-video-wrap{position:relative;width:100%;padding-top:177.78%;border-radius:12px;overflow:hidden;background:#0a0a0a}
 .review-card{background:rgba(8,6,3,.52);border:1px solid rgba(212,172,64,.16);border-radius:16px;padding:22px 20px;display:flex;flex-direction:column;gap:14px}
 .review-header{display:flex;align-items:center;gap:14px}
 .review-avatar{width:58px;height:58px;border-radius:50%;object-fit:cover;border:1.5px solid rgba(212,172,64,.32);flex-shrink:0}
 .review-name{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--charcoal);margin:0 0 3px;letter-spacing:.01em}
 .review-role{font-family:var(--sans);font-size:11.5px;color:rgba(248,240,226,.52);margin:0;font-weight:400;letter-spacing:.025em;line-height:1.5}
 .review-video-link{display:block;text-decoration:none;border-radius:12px;overflow:hidden;cursor:pointer}
-.review-video-wrap{position:relative;width:100%;padding-top:177.78%;border-radius:12px;overflow:hidden;background:#0a0a0a}
+.review-video-wrap{position:relative;width:100%;height:200px;border-radius:12px;overflow:hidden;background:#0a0a0a}
 .review-video-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .review-video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
 .review-video-wrap .yt-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.25);transition:background .18s}
@@ -312,7 +317,7 @@ nav{
   background:
     radial-gradient(ellipse 100% 90% at 22% 50%, rgba(1,6,3,.60) 0%, rgba(1,6,3,.12) 56%, transparent 100%),
     linear-gradient(to bottom,rgba(1,6,3,.64) 0%,rgba(1,6,3,.40) 50%,rgba(1,6,3,.66) 100%),
-    url("pictures for backdrop/The Experience.jpeg") center/cover no-repeat;
+    url("pictures for backdrop/The Experience.webp") center/cover no-repeat;
   border:1px solid rgba(212,172,64,.12)
 }
 .card-photo-included{
@@ -333,7 +338,7 @@ nav{
   background:
     radial-gradient(ellipse 100% 90% at 22% 50%, rgba(1,6,3,.60) 0%, rgba(1,6,3,.12) 56%, transparent 100%),
     linear-gradient(to bottom,rgba(1,6,3,.66) 0%,rgba(1,6,3,.42) 50%,rgba(1,6,3,.68) 100%),
-    url("pictures for backdrop/Tom ceremoney this one.jpeg") center/cover no-repeat;
+    url("pictures for backdrop/Tom ceremoney this one.webp") center/cover no-repeat;
   border-radius:24px;
   border:1px solid rgba(212,172,64,.12)
 }
@@ -344,7 +349,7 @@ nav{
   letter-spacing:.30em;text-transform:uppercase;
   color:var(--gold-lt);margin-bottom:16px;
   display:flex;align-items:center;gap:12px;
-  text-shadow:0 1px 8px rgba(0,0,0,.92),0 2px 20px rgba(0,0,0,.65)
+  text-shadow:0 1px 8px rgba(0,0,0,.55),0 2px 20px rgba(0,0,0,.35)
 }
 .sec-label::before{
   content:'';width:22px;height:1px;
@@ -357,7 +362,7 @@ h2{
   font-family:var(--serif);font-size:clamp(30px,4.5vw,52px);
   font-weight:500;line-height:1.08;letter-spacing:-.018em;
   margin-bottom:22px;color:#fff;
-  text-shadow:0 2px 12px rgba(0,0,0,.92),0 4px 32px rgba(0,0,0,.65)
+  text-shadow:0 2px 12px rgba(0,0,0,.60),0 4px 32px rgba(0,0,0,.40)
 }
 h2 em{color:var(--gold-lt);font-style:italic}
 h3{font-family:var(--serif);font-size:20px;font-weight:500;margin-bottom:10px;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.60)}
@@ -365,7 +370,7 @@ h3{font-family:var(--serif);font-size:20px;font-weight:500;margin-bottom:10px;co
 .rule{width:36px;height:2px;opacity:.80;background:linear-gradient(90deg,var(--crimson-br),transparent);margin:0 0 40px}
 .rule.center{margin:0 auto 40px}
 
-p{margin-bottom:20px;color:var(--ink);font-weight:400;text-shadow:0 1px 6px rgba(0,0,0,.88),0 2px 18px rgba(0,0,0,.55)}
+p{margin-bottom:20px;color:var(--ink);font-weight:400;text-shadow:0 1px 8px rgba(0,0,0,.60),0 2px 18px rgba(0,0,0,.40)}
 p:last-child{margin-bottom:0}
 
 .p-accent{font-style:italic;font-size:20px;color:var(--charcoal);font-weight:400;text-shadow:0 1px 10px rgba(0,0,0,.55)}
@@ -513,7 +518,7 @@ a.lineage-tag:hover{
   text-shadow:0 0 60px rgba(242,216,106,.42),0 0 120px rgba(242,216,106,.18)
 }
 .invest-rate{font-family:var(--sans);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:32px;text-shadow:0 1px 8px rgba(0,0,0,.80)}
-.invest-body{max-width:480px;margin:0 auto 40px;font-size:18px;color:rgba(248,240,226,.96);line-height:1.90;font-weight:300;text-shadow:0 1px 8px rgba(0,0,0,.90),0 2px 20px rgba(0,0,0,.65)}
+.invest-body{max-width:480px;margin:0 auto 40px;font-size:18px;color:rgba(248,240,226,.96);line-height:1.90;font-weight:300;text-shadow:0 1px 8px rgba(0,0,0,.55),0 2px 20px rgba(0,0,0,.38)}
 .invest-future{font-family:var(--sans);font-size:12px;letter-spacing:.12em;color:var(--gold-lt);margin-top:24px;font-style:italic;text-shadow:0 1px 8px rgba(0,0,0,.80)}
 
 /* ── CLOSING ── */
@@ -522,7 +527,7 @@ a.lineage-tag:hover{
   margin:0 auto;padding:0 24px;max-width:500px;
   text-align:center;
   font-style:italic;font-size:21px;line-height:1.90;
-  color:rgba(248,240,226,.94);text-shadow:0 1px 10px rgba(0,0,0,.90),0 3px 24px rgba(0,0,0,.65)
+  color:rgba(248,240,226,.94);text-shadow:0 1px 10px rgba(0,0,0,.55),0 3px 24px rgba(0,0,0,.38)
 }
 .closing-band{
   width:100%;
@@ -530,7 +535,7 @@ a.lineage-tag:hover{
   display:flex;align-items:center;justify-content:center;
   background:
     linear-gradient(to bottom,rgba(1,6,3,.72) 0%,rgba(1,6,3,.28) 30%,rgba(1,6,3,.28) 55%,rgba(1,6,3,.88) 78%,rgba(1,6,3,1) 100%),
-    url("pictures for backdrop/eagle floating above.png") center 45%/cover no-repeat;
+    url("pictures for backdrop/eagle floating above.webp") center 45%/cover no-repeat;
 }
 .site-footer{
   padding:24px 24px 32px;
@@ -636,7 +641,7 @@ footer{
   }
   .hero-eyebrow{font-size:9px;letter-spacing:.22em;margin-bottom:14px}
   .hero h1{font-size:clamp(44px,12vw,62px);margin-bottom:10px;line-height:.96}
-  .hero-subtitle{font-size:clamp(16px,4.2vw,20px);margin-bottom:16px}
+  .hero-subtitle{font-size:clamp(1.3rem,5vw,1.8rem);margin-bottom:20px}
   .hero-desc{font-size:15px;line-height:1.80;margin-bottom:22px}
   .hero-invest{font-size:10px;margin-top:12px;letter-spacing:.08em}
   .inner{padding:30px 16px}
@@ -700,14 +705,14 @@ footer{
 }
 
 /* TOM PORTRAIT BANNER */
-.tom-portrait{margin:-64px -56px 36px;height:500px}
-@media(max-width:860px){.tom-portrait{margin:-52px -36px 28px;height:440px}}
+.tom-portrait{margin:-64px -56px 36px;height:640px}
+@media(max-width:860px){.tom-portrait{margin:-52px -36px 28px;height:560px}}
 @media(max-width:600px){
-  .tom-portrait{margin:-40px -22px 28px;height:360px}
+  .tom-portrait{margin:-40px -22px 28px;height:480px}
   .tom-portrait img{object-position:65% 12% !important}
 }
 @media(max-width:480px){
-  .tom-portrait{margin:-30px -16px 24px;height:300px}
+  .tom-portrait{margin:-30px -16px 24px;height:420px}
   .tom-portrait img{object-position:65% 10% !important}
 }
 
@@ -794,6 +799,9 @@ footer{
   #snav-track{display:block;}
   .snav-item{pointer-events:none;}
 }
+
+/* ── FIREFLIES ── */
+#particles{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:2}
 </style>
 </head>
 <body>
@@ -804,6 +812,8 @@ footer{
     <rect width="100%" height="100%" filter="url(#gn)"/>
   </svg>
 </div>
+
+<canvas id="particles" aria-hidden="true"></canvas>
 
 <!-- NAV -->
 <nav>
@@ -836,8 +846,8 @@ footer{
 <section id="sec-hero" class="hero">
   <p class="hero-eyebrow fade d1">The Essence Way · Initiations</p>
   <h1 class="fade d2">Time to <em>Integrate</em></h1>
-  <p class="hero-subtitle fade d3">From Knowing to Living</p>
-  <p class="hero-desc fade d4">A private ceremonial somatic energy medicine experience where the insights and breakthroughs you've accumulated are reactivated, what stands between knowing and living is cleared, and what you've always known you're capable of becomes the life you live.</p>
+  <p class="hero-subtitle fade d3">From knowing <em>to living.</em></p>
+  <p class="hero-desc fade d4">A private ceremonial Energy Medicine experience that clears what stands between you and the life you've always known is meant for you.</p>
   <a href="https://wa.me/32474373277?text=Hi%20Tom%2C%20I%20would%20like%20to%20book%20my%20Alignment%20Call%20for%20Time%20to%20Integrate" class="btn btn-fill fade d4">Book your Alignment Call</a>
   <p class="hero-invest fade d5">Founding Investment: €333 &nbsp;·&nbsp; Future: €555+</p>
 </section>
@@ -854,8 +864,8 @@ footer{
       <div class="float-card rev rev-up d3">
         <blockquote>"Time to integrate."</blockquote>
         <p>We hear it everywhere we go at every transformational event and even the not so transformational ones. Like a good old song that keeps repeating in our minds, never really knowing what to do with it. We all know that somehow it deeply matters that all the insights and breakthroughs lose their meaning if we don't integrate and embody them. And yet we have never quite received an answer to the most obvious question: what does that actually mean? How do we even integrate?</p>
-        <p>So we do what we know. We reflect. We journal. We turn to breathwork to find our way back to a clarity we can still taste. Some of us walk into a therapist's office, which takes its own kind of courage. Others go back for another ceremony, willing to face ourselves again, trusting that this time it lands differently. We show up for all of it, not to chase another high, but because some part of us refuses to settle for less than what we know we're capable of. And each time, something real does move. We confront the parts of ourselves that ask to be seen, and arrive somewhere true, a deeper knowing of who we are, what we're here for, how to move forward in alignment with what matters most, so much potential revealing itself, ready to move through.</p>
-        <p>And yet when we look at our actual lives, we realise that the passion project that once felt so alive and clear now sits untouched, floating as a half-expressed potential, waiting for the moment that never quite arrives. The direction blurs the moment life picks back up. The breakthrough fades into the background of the same patterns, the same hesitations, the same familiar pull away from what we know we are here to do.</p>
+        <p>So we do what we know. We reflect. We journal. We turn to breathwork to find our way back to a clarity we can still taste. Some of us walk into a therapist's office, which takes its own kind of courage. Others go back for another ceremony, willing to face ourselves again, trusting that this time it lands differently. We show up for all of it because some part of us refuses to settle for less than what we know we're capable of. And each time, something real does move. We confront the parts of ourselves that ask to be seen, and arrive somewhere true, a deeper knowing of who we are, what we're here for, how to move forward in alignment with what matters most, so much potential revealing itself, ready to move through.</p>
+        <p>And yet when we look at our actual lives, we realise that the vision which once felt so alive and clear now quietly waits in the background, carrying a life we know is possible, yet somehow never quite seem to step into. The direction blurs the moment life picks back up. The breakthrough fades into the background of the same patterns, the same hesitations, the same familiar pull away from what we know we are here to do.</p>
         <p>After a dozen unfinished projects and moments of almost, we start to doubt whether we can live up to our potential. And even worse, we begin to question if any of it is even real or if we are just delusional and it only exists in those moments of expansion.</p>
         <p>And still beneath all of it something keeps returning. That same pull. That same knowing. Too consistent to ignore. Too alive to dismiss.</p>
         <p class="p-accent">Maybe the question was never whether it was real. Maybe the question was always why it hasn't landed yet.</p>
@@ -873,7 +883,7 @@ footer{
       <p class="rev rev-up d2">That knowing of what you're truly capable of, the one that surfaces in the moments you feel most untethered, most yourself, most free of the roles and patterns you normally operate from, is your essence coming through. The deepest and most true part of you, the part that knows exactly what you're here to create and how to bring it to life.</p>
       <div class="float-card rev rev-up d3">
         <p>What keeps it from fully coming through are the limiting patterns. Showing up as the fears that surface the moment you sit down to work on what matters most. The patterns that have you second guessing every intuitive decision. The deep rooted beliefs that push you out of alignment right when you are closest to breaking through.</p>
-        <p>To integrate is to look at what's actually keeping you from acting on your essence, the limiting patterns and imprints in the way, and clear them, so essence stops being something you catch glimpses of and becomes something you move from, consistently. That is what Time to Integrate is here to bring.</p>
+        <p>To integrate is to look at what's actually keeping you from acting from your essence, the limiting patterns and imprints in the way, and clear them at the root.</p>
         <p>So the vision you've been carrying can belong in your everyday lived experience, with your passion projects being birthed into life with a deep sense of ease and certainty, because finally we have arrived at that sweet spot where our contractions are transformed into expressions of life just flowing through. Full surrender to the knowing within, guiding us throughout.</p>
       </div>
     </div>
@@ -897,7 +907,7 @@ footer{
       <div class="float-card rev rev-up d3">
         <p>Everything you've tried has moved something. And still, the limiting patterns return. That is because most modalities work with what is on the surface, the thoughts, the emotions, the behaviours. This work goes to where they originate.</p>
         <p>The limiting patterns that express themselves as fears, self-sabotage, and the constant pull away from what you know you're here to do have their first expression in the energetic field, long before they become a feeling, a thought, or an action. Their origin reaches far beyond what you are consciously aware of accumulated across lifetimes, through the lineage, and beyond. Silent contracts made in another time and under other circumstances, still quietly governing the choices you make today.</p>
-        <p>This is where energy medicine works most powerfully. It traces the pattern back to where it began, the original experience that shaped how you see yourself, what you believe is possible, and how far you allow yourself to go and clears it at the root. Through soul retrieval, extraction, illumination, and cord cutting, we retrieve what was lost, remove what doesn't belong, cut what no longer needs to bind, illuminate what has been living in the dark, and seed your essence back into every cell of your being. Deep intuitive bodywork supports and integrates what shifts energetically, working with the fascia to release what has been stuck, allowing a full reset of the nervous system so the clearing can land and be held by the body.</p>
+        <p>This is where energy medicine works most powerfully. We locate where the imprint resides in your energetic field tracing it back to the original experience that brought it to life, the one still shaping how you see yourself, what you believe is possible, and how far you allow yourself to go and clear it at the root. Through soul retrieval, extraction, illumination, and cord cutting, we retrieve what was lost, remove what doesn't belong, cut what no longer needs to bind, illuminate what has been living in the dark, and seed your essence back into every cell of your being. Deep intuitive bodywork supports and integrates what shifts energetically, working with the fascia to release what has been stuck, allowing a full reset of the nervous system so the clearing can land and be held by the body.</p>
         <p>Within ceremonial space, held by Santa Maria, all of this goes deeper and reaches further. She opens what is ready to move and amplifies what is ready to be cleared reaching in a day and a half what might otherwise take months.</p>
       </div>
     </div>
@@ -908,7 +918,7 @@ footer{
   <div id="sec-tom" class="card card-xl card-photo-tom-bg card-reveal from-scale">
     <div class="inner">
       <div class="rev rev-up d1 tom-portrait" style="overflow:hidden">
-        <img src="Tom Aeon picture.png" alt="Tom Æon" style="width:100%;height:100%;object-fit:cover;object-position:65% 20%;display:block;
+        <img src="pictures for backdrop/Tom picture updated version.webp" alt="Tom Æon" style="width:100%;height:100%;object-fit:cover;object-position:65% 20%;display:block;
           -webkit-mask-image:linear-gradient(to bottom, black 50%, transparent 100%);
           mask-image:linear-gradient(to bottom, black 50%, transparent 100%);
           filter:brightness(.97) saturate(1.15)">
@@ -919,7 +929,7 @@ footer{
       </div>
       <div class="rule rev rev-up d2"></div>
       <div class="float-card rev rev-up d3">
-        <p>I know what it feels like to have this great vision, that sense of purpose alive within you, desiring to move through. To know that there's something greater calling you forward, and not have the guidance or the tools, or even a real understanding of how to access it. How to move from it.</p>
+        <p>I know what it feels like to have that sense of purpose alive within you, desiring to move through. To know that there's something greater calling you forward, and not have the guidance, the tools, or even a real understanding of how to access it. How to move from it.</p>
         <p>For years... it feels almost like a lifetime ago now, I've been successful as a project manager. That was supposed to make sense for me, supposed to bring me the fulfillment I was yearning to have.</p>
         <p>After a while I was feeling the weight of being responsible for million-euro projects. It got me wondering, why am I even taking this on. For whom. I only felt less and less myself, yet more and more successful on the outside. Others were directing my life, without me even noticing it was happening. I wasn't truly living my own life. My own purpose. My own path.</p>
         <p>It feels like yesterday. A Sunday evening, we'd ordered pizza. I went upstairs to check in on someone dear to me, and I caught her in such a deep, painful moment. Knowing she'd already been carrying this pain for months, years even.</p>
@@ -933,10 +943,6 @@ footer{
         <p>The liberation from those patterns I kept looping through, the ones that kept pulling me back. It never came. What I was left with instead was this highly refined awareness of exactly what was limiting me. More conscious, more grounded, sure. But still inside the same patterns. Still without the ability to actually break free of them.</p>
         <p>It wasn't until a handful of initiatory experiences in Luxor, Egypt, that something clicked. I finally had clarity, a total understanding of what real transformation actually requires. And where it has to go, beyond anywhere the other work had taken me.</p>
         <p>That's when The Essence Way was born.</p>
-        <p>A path that brings everything together. That meets the places other work leaves untouched, so you can meet the totality of who you are, clear what was never yours to begin with, and finally move from the deeper truth that's already living inside you.</p>
-        <p>Because purpose isn't a destination. It's an energy that moves through you, every time you act from essence. That knowing. That pull. That part of you that has never once stopped calling you forward. It's always been there. Just covered over, by distortions and imprints and old programming that were never actually yours.</p>
-        <p class="p-accent">My friend, I am genuinely excited to invite you into this unraveling. Into the rise of your power, your purpose, your truth.</p>
-        <p style="font-weight:500;color:var(--charcoal)">Are you ready?</p>
       </div>
       <div class="lineage-wrap rev rev-up d4">
         <p class="lineage-label">Certifications &amp; Lineage</p>
@@ -1019,10 +1025,9 @@ footer{
       <h2 class="rev rev-up d2">What Becomes <em>Possible</em></h2>
       <div class="rule rev rev-up d2"></div>
       <div class="float-card rev rev-up d3">
-        <p>After this experience something has shifted in how you carry yourself. There is more space in you, the kind that feels open. Rooted. Like ground that was always there, finally felt beneath your feet.</p>
-        <p>The passion projects that once felt like they belonged to a future version of you begin to feel like yours to build today. Something in the way you move toward them has changed. The steadiness that was always trying to come through you now does. More consistently. More naturally. Like a returning to what was always true.</p>
-        <p>The vision remains. And you have deepened into it. That changes everything about how you meet it, with more clarity, more trust, and more of the natural pull toward what you know you are here to do.</p>
-        <p>Your creativity moves from that place now. Your choices come from a deeper knowing. And the life you have been sensing was possible, the one that always felt just out of reach, begins to feel, for the first time, like exactly where you belong.</p>
+        <p>That first week carries its own surge, a clarity you can feel in your body, a direction that no longer needs to be searched for, an ability to act on it the moment it arrives. And then, slowly, it settles into something quieter, because moving from your essence is the most natural way to move through life. The resistance that used to meet you at every step softens into the same ease as walking, one foot simply finding the ground in front of the other, already moving in the direction of what matters most to you.</p>
+        <p>You find yourself moving forward without deciding to. A conversation turns naturally in its direction. A choice that would once have taken days of circling now takes a breath. The energy that used to scatter across everything that felt urgent now gathers, on its own, around what actually matters.</p>
+        <p>This is the ground you have been standing on all along, finally felt beneath your feet.</p>
       </div>
     </div>
   </div>
@@ -1062,7 +1067,7 @@ footer{
         <!-- Video: Gerardo Navarro -->
         <div class="review-card rev rev-up d3">
           <div class="review-header">
-            <img class="review-avatar" src="review/Geert.png" alt="Gerardo Navarro">
+            <img class="review-avatar" src="review/Geert.webp" alt="Gerardo Navarro" loading="lazy">
             <div>
               <p class="review-name">Gerardo Navarro</p>
               <p class="review-role">Integration Mentor / Philosopher</p>
@@ -1081,7 +1086,7 @@ footer{
         <!-- Video: Stephanie Lalonde -->
         <div class="review-card rev rev-up d4">
           <div class="review-header">
-            <img class="review-avatar" src="review/Steph.png" alt="Stephanie Lalonde">
+            <img class="review-avatar" src="review/Steph.webp" alt="Stephanie Lalonde" loading="lazy">
             <div>
               <p class="review-name">Stephanie Lalonde</p>
               <p class="review-role">Feminine Embodiment &amp; Relationship Coach</p>
@@ -1100,7 +1105,7 @@ footer{
         <!-- Text: Sergio Ser Escobar -->
         <div class="review-card rev rev-up d5">
           <div class="review-header">
-            <img class="review-avatar" src="review/sergio.png" alt="Sergio Ser Escobar">
+            <img class="review-avatar" src="review/sergio.webp" alt="Sergio Ser Escobar" loading="lazy">
             <div>
               <p class="review-name">Sergio Ser Escobar</p>
               <p class="review-role">Relational &amp; Somatic Guide / Founder</p>
@@ -1117,7 +1122,7 @@ footer{
         <!-- Text: Rebecca Bauer -->
         <div class="review-card rev rev-up d6">
           <div class="review-header">
-            <img class="review-avatar" src="review/Rebecca.png" alt="Rebecca Bauer">
+            <img class="review-avatar" src="review/Rebecca.webp" alt="Rebecca Bauer" loading="lazy">
             <div>
               <p class="review-name">Rebecca Bauer</p>
               <p class="review-role">Surfer / Digital Nomad</p>
@@ -1422,6 +1427,56 @@ footer{
       wrap.innerHTML='<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="no-referrer-when-downgrade" style="position:absolute;inset:0;width:100%;height:100%;border:none;border-radius:12px"></iframe>';
     });
   });
+
+
+// ── FIREFLIES ──
+(function(){
+  var pc = document.getElementById('particles');
+  if(!pc) return;
+  var ctx = pc.getContext('2d');
+  var mobile = window.innerWidth < 700;
+
+  function resize(){ pc.width = window.innerWidth; pc.height = window.innerHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+
+  var flies = [];
+  var n = mobile ? 4 : 8;
+  for(var i = 0; i < n; i++){
+    flies.push({
+      x: Math.random() * pc.width,
+      y: Math.random() * pc.height,
+      vx: (Math.random() - 0.5) * 0.15,
+      vy: (Math.random() - 0.5) * 0.11,
+      sz: 0.5 + Math.random() * 1.5,
+      ph: Math.random() * Math.PI * 2,
+      sp: 0.007 + Math.random() * 0.018
+    });
+  }
+
+  (function loop(){
+    ctx.clearRect(0, 0, pc.width, pc.height);
+    var t = Date.now() * 0.001;
+    flies.forEach(function(f){
+      f.x += f.vx; f.y += f.vy;
+      if(f.x < -20) f.x = pc.width + 20;
+      if(f.x > pc.width + 20) f.x = -20;
+      if(f.y < -20) f.y = pc.height + 20;
+      if(f.y > pc.height + 20) f.y = -20;
+      var p = 0.22 + 0.78 * Math.pow(Math.sin(t * f.sp * 60 + f.ph), 2);
+      var al = 0.10 + 0.48 * p;
+      var grd = ctx.createRadialGradient(f.x, f.y, 0, f.x, f.y, f.sz * 10);
+      grd.addColorStop(0, 'rgba(240,205,80,' + al + ')');
+      grd.addColorStop(0.4, 'rgba(212,172,64,' + (al * 0.5) + ')');
+      grd.addColorStop(1, 'rgba(212,172,64,0)');
+      ctx.beginPath(); ctx.arc(f.x, f.y, f.sz * 10, 0, Math.PI * 2);
+      ctx.fillStyle = grd; ctx.fill();
+      ctx.beginPath(); ctx.arc(f.x, f.y, f.sz * p, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255,248,200,' + (al * 0.88) + ')'; ctx.fill();
+    });
+    requestAnimationFrame(loop);
+  })();
+})();
 </script>
 </body>
 </html>
