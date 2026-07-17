@@ -245,6 +245,11 @@ nav{
   background:linear-gradient(175deg,rgba(6,18,10,.94) 0%,rgba(2,8,5,.96) 100%);
   border:1px solid rgba(212,172,64,.12)
 }
+#sec-faq{
+  background:
+    linear-gradient(175deg,rgba(18,10,4,.78) 0%,rgba(10,5,2,.80) 100%),
+    url("pictures for backdrop/Dragon scale backdrop.jpg") center/cover no-repeat;
+}
 /* ── SECTION-SPECIFIC PHOTO BACKGROUNDS ── */
 .card-photo-winding{
   background:
@@ -1280,9 +1285,8 @@ footer{
       <p class="sec-label center rev rev-scale d1">Let's go</p>
       <h2 class="rev rev-up d2" style="font-size:clamp(28px,4.2vw,50px)">The Next <em>Step</em></h2>
       <div class="rule center rev rev-up d2"></div>
-      <p class="rev rev-up d3" style="max-width:480px;margin:0 auto 36px;font-size:19px;line-height:1.90;text-shadow:0 1px 8px rgba(0,0,0,.90),0 2px 20px rgba(0,0,0,.60)">During the alignment call, we will explore where you are, what keeps returning, and what's ready to move. There's no pitch, no pressure, just seeing whether this is the right moment for you.
-
-Do you feel the call? Then, my friend, I am genuinely excited to invite you into the unraveling of your magnificence.</p>
+      <p class="rev rev-up d3" style="max-width:480px;margin:0 auto 24px;font-size:19px;line-height:1.90;text-shadow:0 1px 8px rgba(0,0,0,.90),0 2px 20px rgba(0,0,0,.60)">During the Alignment Call, we'll explore where you are, what keeps returning, and what feels ready to move. There is no pitch and no pressure, just an honest conversation to see whether this is the right moment and the right experience for you.</p>
+      <p class="rev rev-up d3" style="max-width:480px;margin:0 auto 36px;font-size:19px;line-height:1.90;color:var(--gold-lt);text-shadow:0 1px 8px rgba(0,0,0,.90),0 2px 20px rgba(0,0,0,.60)">Do you feel the call? Then, my friend,<br>I'm excited to meet you on our Alignment Call.</p>
       <div class="rev rev-up d4">
         <a href="https://wa.me/32474373277?text=Hi%20Tom%2C%20I%20would%20like%20to%20book%20my%20Alignment%20Call%20for%20Time%20to%20Integrate" class="btn btn-fill">Book your Alignment Call</a>
       </div>
@@ -1310,11 +1314,22 @@ Do you feel the call? Then, my friend, I am genuinely excited to invite you into
 (function(){
   var h1 = document.querySelector('.hero h1');
   var desc = document.querySelector('.hero-desc');
+  var hero = document.querySelector('.hero');
+  var subtitle = document.querySelector('.hero-subtitle');
   function syncDescWidth(){
     if(h1 && desc){ desc.style.maxWidth = h1.offsetWidth + 'px'; }
   }
-  window.addEventListener('load', syncDescWidth);
-  window.addEventListener('resize', syncDescWidth);
+  function syncEagle(){
+    if(!hero || !subtitle) return;
+    var heroRect = hero.getBoundingClientRect();
+    var subRect = subtitle.getBoundingClientRect();
+    var subCenterY = subRect.top - heroRect.top + subRect.height / 2;
+    var pct = (subCenterY / heroRect.height * 100).toFixed(2);
+    hero.style.backgroundPosition = 'center ' + pct + '%';
+  }
+  function syncAll(){ syncDescWidth(); syncEagle(); }
+  document.fonts.ready.then(syncAll);
+  window.addEventListener('resize', syncAll);
 })();
 (function(){
   var cardObs = new IntersectionObserver(function(entries){
