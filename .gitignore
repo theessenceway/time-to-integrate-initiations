@@ -1,0 +1,15 @@
+# Large video files
+review/*.mp4
+
+# Local backups
+index-backup-*.html
+index.BACKUP-*.html
+template.html
+
+# Local docs not for web
+*.pdf
+*.docx
+OEM_Workbook*
+
+# Claude local config
+.claude/
